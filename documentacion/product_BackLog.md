@@ -6,7 +6,7 @@ Según las historias de Usuario. Vamos a Asignar nuestra prioridad.
 - Prioridad Usuario: **1**
 - Nuestra prioridad: **1**
 
-_Tiempo Estimado de Desarrolo:_ **1:30h** 
+_Tiempo Estimado de Desarrolo:_ **2:30h** 
 
 ### HU 2 - Cargar_BackUp:
 - Prioridad Usuario: **3**
@@ -18,7 +18,7 @@ _Tiempo Estimado de Desarrolo:_ **1h**
 - Prioridad Usuario: **2**
 - Nuestra prioridad: **2**
 
-_Tiempo Estimado de Desarrolo:_ **1:30h**
+_Tiempo Estimado de Desarrolo:_ **2:30h**
 
 ### HU 4 - Borrar_Alumno:
 - Prioridad Usuario: **5**
@@ -30,7 +30,7 @@ _Tiempo Estimado de Desarrolo:_ **2h**
 - Prioridad Usuario: **5**
 - Nuestra prioridad: **4**
 
-_Tiempo Estimado de Desarrolo:_ **2h**
+_Tiempo Estimado de Desarrolo:_ **3h**
 
 ### HU 6 - Modificar_Alumno:
 - Prioridad Usuario: **5**
@@ -54,7 +54,7 @@ _Tiempo Estimado de Desarrolo:_ **3h**
 - Prioridad Usuario: **1**
 - Nuestra prioridad: **3**
 
-_Tiempo Estimado de Desarrolo:_ **2h** 
+_Tiempo Estimado de Desarrolo:_ **3h** 
 
 ### HU 10 - Cargar Almacenamiento:
 - Prioridad Usuario: **1**
