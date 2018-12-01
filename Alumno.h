@@ -26,6 +26,7 @@ public:
 //	Getters
 	inline int getDNI(){return DNI_;}
 	inline int getCurso(){return curso_;}
+	inline int getTlf(){return tlf_;}
 	inline int getGrupo(){return grupo_;}
 	inline string getNombre(){return nombre_;}
 	inline string getApellidos(){return apellidos_;}
