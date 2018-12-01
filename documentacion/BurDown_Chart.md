@@ -4,5 +4,5 @@ Para la entrega de la parte inicial de nuestro proyecto, vamos a realizar un tot
 
 ### Sprint 1: (01/12/2018)
 
-- **Horas:** _1._
+- **Horas:** _3h (Cada individuo)._
 
