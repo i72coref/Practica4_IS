@@ -19,9 +19,11 @@ public:
 	inline void setApellidos(string apellidos){apellidos_ = apellidos;}
 	inline void setFecha_nacimiento(string fecha_nacimiento){fecha_nacimiento_ = fecha_nacimiento;}
 	inline void setEmail(string email){email_ = email;}
-	inline void setNombre(string direccion){direccion_ = direccion;}
-
-
+	inline void setDireccion(string direccion){direccion_ = direccion;}
+	inline int getDNI(){return DNI_;}
+	inline int getCurso(){return curso_;}
+	inline string getNombre(){return nombre_;}
+	inline string getApellidos(){return apellidos_;}
 
 
 };
