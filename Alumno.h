@@ -20,11 +20,16 @@ public:
 	inline void setFecha_nacimiento(string fecha_nacimiento){fecha_nacimiento_ = fecha_nacimiento;}
 	inline void setEmail(string email){email_ = email;}
 	inline void setDireccion(string direccion){direccion_ = direccion;}
+	inline void setLider(bool lider){lider_ = lider;}
+//	Getters
 	inline int getDNI(){return DNI_;}
 	inline int getCurso(){return curso_;}
 	inline string getNombre(){return nombre_;}
 	inline string getApellidos(){return apellidos_;}
-
+	inline string getFecha_nacimiento(){return fecha_nacimiento_;}
+	inline string getEmail(){return email_;}
+	inline string getDireccion(){return direccion_;}
+	inline bool getLider(){return lider_;}
 
 };
 
