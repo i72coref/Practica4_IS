@@ -12,6 +12,7 @@ private:
 	bool lider_;
 public:
 //	Setters
+	Alumno(){};
 	inline void setDNI(int DNI){DNI_ = DNI;}
 	inline void setCurso(int curso){curso_ = curso;}
 	inline void setTlf(int tlf){tlf_ = tlf;}
@@ -30,7 +31,6 @@ public:
 	inline string getEmail(){return email_;}
 	inline string getDireccion(){return direccion_;}
 	inline bool getLider(){return lider_;}
-
 };
 
 #endif
