@@ -71,6 +71,8 @@ void Agenda::mostrarAlumnos(){
 		case 1:{
 //TODO		v_Alumnos.ordenar();
 			for(int i=0; i<v_Alumnos.size(); i++){
+				//Creo un vector auxiliar, para al ordenar no modificar el vector orginal
+
 				if(v_Alumnos[i].getLider() == true){
 					cout<<"\e[1m "/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[i].getNombre()<<"\e[0m non-bold"/*desactiva resaltado*/<<endl;
 				}
@@ -143,5 +145,84 @@ void Agenda::intoducirAlumnos(){
 		cin>>aunI;
 		v_Alumnos[i].setGrupo(aunI);
 		system("clear");
+	}
+	cout<<"En el sistema hay un total de "<<v_Alumnos.size()<<endl;
+}
+
+vector<Alumno> Agenda::ordenar(){
+	int op;
+	vector<Alumno> v_aux;
+	v_aux = v_Alumnos;
+	Alumno a_aux;
+
+	cout<<"Como desea ordenar el vector."
+	<<"\n\t1. Por DNI ascendente."
+	<<"\n\t1. Por DNI descendente."
+	<<"\n\t3. Por apellidos."
+	<<"\n\t4. Por curso mas alto ascendente."
+	<<"\n\t5. Por curso mas alto descendente."
+	<<"\n\t6. Por nommbre."<<endl;
+
+	switch(op){
+		default:{
+			cout<<"Opcion no encontrada."<<endl;
+			break;
+		}
+		case 1:{
+			for(int i=0; i<v_aux.size(); i++){
+				for(int j=i; j<v_aux.size(); j++){
+					if(v_aux[i].getDNI() > v_aux[j].getDNI()){
+						a_aux = v_aux[i];
+						v_aux[i] = v_aux[j];
+						v_aux[j] = a_aux;
+					}
+				}
+			}
+			break;
+		}
+		case 2:{
+			for(int i=0; i<v_aux.size(); i++){
+				for(int j=i; j<v_aux.size(); j++){
+					if(v_aux[i].getDNI() < v_aux[j].getDNI()){
+						a_aux = v_aux[i];
+						v_aux[i] = v_aux[j];
+						v_aux[j] = a_aux;
+					}
+				}
+			}
+			break;
+		}
+		case 3:{ //TODO
+			cout<<"W.I.P"<<endl;
+			break;
+		}
+		case 4:{
+			for(int i=0; i<v_aux.size(); i++){
+				for(int j=i; j<v_aux.size(); j++){
+					if(v_aux[i].getCurso() > v_aux[j].getCurso()){
+						a_aux = v_aux[i];
+						v_aux[i] = v_aux[j];
+						v_aux[j] = a_aux;
+					}
+				}
+			}
+			break;	
+		}
+		case 5:{
+			for(int i=0; i<v_aux.size(); i++){
+				for(int j=i; j<v_aux.size(); j++){
+					if(v_aux[i].getCurso() < v_aux[j].getCurso()){
+						a_aux = v_aux[i];
+						v_aux[i] = v_aux[j];
+						v_aux[j] = a_aux;
+					}
+				}
+			}
+			break;	
+		}
+		case 6:{ //TODO
+			cout<<"W.I.P"<<endl;
+			break;
+		}
 	}
 }

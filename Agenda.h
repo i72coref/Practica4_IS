@@ -19,8 +19,7 @@ class Agenda{
 	vector<int> buscarAlumno(int, string, int);// tipo de dato =1 apellido , 2 dni ó 3 grupo
 	void mostrarAlumnos();
 	void intoducirAlumnos();
-
-
+	vector<Alumno> ordenar();
 };
 
 #endif
