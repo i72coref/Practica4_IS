@@ -7,7 +7,7 @@ using namespace std;
 
 class Alumno{
 private:
-	int DNI_, curso_, tlf_;
+	int DNI_, curso_, tlf_, grupo_;
 	string nombre_, apellidos_, fecha_nacimiento_, email_, direccion_;
 	bool lider_;
 public:
@@ -16,6 +16,7 @@ public:
 	inline void setDNI(int DNI){DNI_ = DNI;}
 	inline void setCurso(int curso){curso_ = curso;}
 	inline void setTlf(int tlf){tlf_ = tlf;}
+	inline void setGrupo(int grupo){grupo_ = grupo;}
 	inline void setNombre(string nombre){nombre_ = nombre;}
 	inline void setApellidos(string apellidos){apellidos_ = apellidos;}
 	inline void setFecha_nacimiento(string fecha_nacimiento){fecha_nacimiento_ = fecha_nacimiento;}
@@ -25,6 +26,7 @@ public:
 //	Getters
 	inline int getDNI(){return DNI_;}
 	inline int getCurso(){return curso_;}
+	inline int getGrupo(){return grupo_;}
 	inline string getNombre(){return nombre_;}
 	inline string getApellidos(){return apellidos_;}
 	inline string getFecha_nacimiento(){return fecha_nacimiento_;}
