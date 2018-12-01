@@ -7,13 +7,13 @@ Nuestro Equipo está formado por:
 
 ### En cuanto al reparto de las funciones que realizará cada programador:
 
-- Uso_Credenciales : i72lopca, i72coref.
-- Cargar_BackUp :  i72lopca.
-- Introducir_Datos : i72lopca, i72coref.
-- Borrar_Alumno : i72caora, i72coref.
-- Mostrar_Alumno : i72lopca, i72caora.
-- Modificar_Alumno : i72coref, i72caora.
-- Busqueda_Datos : i72lopca, i72caora, i72coref
-- Admin_Lideres : i72lopca, i72caora
-- Cargar Almacenamiento : i72coref
-- Guardar Almacenamiento : i72caora
+- Uso_Credenciales : **i72lopca, i72coref.**
+- Cargar_BackUp : **i72lopca.**
+- Introducir_Datos : **i72lopca, i72coref.**
+- Borrar_Alumno : **i72caora, i72coref.**
+- Mostrar_Alumno : **i72lopca, i72caora.**
+- Modificar_Alumno : **i72coref, i72caora.**
+- Busqueda_Datos : **i72lopca, i72caora, i72coref.**
+- Admin_Lideres : **i72lopca, i72caora.**
+- Cargar Almacenamiento : **i72coref.**
+- Guardar Almacenamiento : **i72caora.**
