@@ -1,14 +1,17 @@
 #include <iostream>
+#include "profesor.h"
+
 using namespace std;
 
 //Prototipos de funciones
 void menu();
 
 int main(){
-	menu();
+	Profesor prof;
 	int opcion;
-	cin>>opcion;
-
+//	cin>>opcion;
+//	menu();
+	prof.login();
 
 
 	return 0;
@@ -17,11 +20,12 @@ int main(){
 void menu(){
 //	Menu reducido, o para ayudantes
 	cout<<"Elija una opcion:"<<endl;
-	cout<<"\tIntroducir alumnos."
-	<<"\n\tBorrar alumno."
-	<<"\n\tModificar alumno."<<endl;
-
-//	Faltan las opciones avanzadas
-
+	cout<<"\t1. Introducir alumnos."
+	<<"\n\t2. Borrar alumno."
+	<<"\n\t3. Modificar alumno."<<endl;
+//	if(prof.getRol()){
+ 		cout<<"\t4. Guardar Backup."
+		<<"\t5. Cargar Backup."<<endl;
+//	}
 	cout<<"Opcion: ";
 }

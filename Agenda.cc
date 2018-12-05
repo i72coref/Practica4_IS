@@ -14,7 +14,7 @@ void Agenda::borrarAlumno(string dato, int tipo = 0){ //tipo de dato : 1 apellid
 			break;
 		}
 		default:{
-			cout<<"ERROR, Tipo no conocido."<<endl;
+			cout<<"ERROR, tipo de dato no conocido."<<endl;
 			break;
 		}
 	}
@@ -25,7 +25,7 @@ bool Agenda::gestionLideres(){
 	return true;
 }
 
-vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tipo = 2){// tipo de dato =1 apellido , 2 dni ó 3 grupo
+vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tipo = 2){// tipo de dato =1 apellido , 2 dni ó 3 
 //	Creo el vector de indices
 	vector<int> indices;
 
@@ -57,6 +57,7 @@ vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tip
 }
 
 void Agenda::mostrarAlumnos(){
+	vector<Alumno> v_aux;
 	int op = 1;
 	cout<<"Elija una opcion:\n"
 	<<"\t1 Mostrar todos los alumnos.\n"
@@ -70,7 +71,7 @@ void Agenda::mostrarAlumnos(){
 			break;
 		}
 		case 1:{
-//TODO		v_Alumnos.ordenar();
+			v_aux = ordenar();
 			for(int i=0; i<v_Alumnos.size(); i++){
 				//Creo un vector auxiliar, para al ordenar no modificar el vector orginal
 
@@ -81,18 +82,18 @@ void Agenda::mostrarAlumnos(){
 					cout<<"Nombre: "<<v_Alumnos[i].getNombre()<<endl;
 				}
 				cout<<"El alumno numero"<< i+1 <<"es:"
-				<<"\nApellidos: "<<v_Alumnos[i].getApellidos()
-				<<"\nDNI: "<<v_Alumnos[i].getDNI()
-				<<"\nFecha de nacimiento: "<<v_Alumnos[i].getFecha_nacimiento()
-				<<"\nEmail: "<<v_Alumnos[i].getEmail()
-				<<"\nDireccion: "<<v_Alumnos[i].getDireccion()
-				<<"\nCurso mas alto en el que esta matriculado: "<<v_Alumnos[i].getCurso()
-				<<"\nTelefono: "<<v_Alumnos[i].getTlf()
-				<<"\nGrupo: "<<v_Alumnos[i].getGrupo()<<endl;
+				<<"\nApellidos: "<<v_aux[i].getApellidos()
+				<<"\nDNI: "<<v_aux[i].getDNI()
+				<<"\nFecha de nacimiento: "<<v_aux[i].getFecha_nacimiento()
+				<<"\nEmail: "<<v_aux[i].getEmail()
+				<<"\nDireccion: "<<v_aux[i].getDireccion()
+				<<"\nCurso mas alto en el que esta matriculado: "<<v_aux[i].getCurso()
+				<<"\nTelefono: "<<v_aux[i].getTlf()
+				<<"\nGrupo: "<<v_aux[i].getGrupo()<<endl;
 			}
 			break;
 		}
-		case 2:{
+		case 2:{//TODO
 			cout<<"W.I.P"<<endl;
 			break;
 		}
@@ -193,8 +194,16 @@ vector<Alumno> Agenda::ordenar(){
 			}
 			break;
 		}
-		case 3:{ //TODO
-			cout<<"W.I.P"<<endl;
+		case 3:{//Ordena alfabeticamente los apellidos
+			for(int i=0; i<v_aux.size(); i++){
+				for(int j=i; j<v_aux.size(); j++){
+					if(v_aux[i].getApellidos() < v_aux[j].getApellidos()){
+						a_aux = v_aux[i];
+						v_aux[i] = v_aux[j];
+						v_aux[j] = a_aux;
+					}
+				}
+			}
 			break;
 		}
 		case 4:{
@@ -221,8 +230,16 @@ vector<Alumno> Agenda::ordenar(){
 			}
 			break;	
 		}
-		case 6:{ //TODO
-			cout<<"W.I.P"<<endl;
+		case 6:{ //Ordeno alfabeticamente 
+			for(int i=0; i<v_aux.size(); i++){
+				for(int j=i; j<v_aux.size(); j++){
+					if(v_aux[i].getNombre() < v_aux[j].getNombre()){
+						a_aux = v_aux[i];
+						v_aux[i] = v_aux[j];
+						v_aux[j] = a_aux;
+					}
+				}
+			}
 			break;
 		}
 	}
