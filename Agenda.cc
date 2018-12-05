@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Agenda.h"
 #include <cstdio>
+#include <cstdlib>
 
 void Agenda::borrarAlumno(string dato, int tipo = 0){ //tipo de dato : 1 apellido, 2 dni
 	switch(tipo){
@@ -225,4 +226,5 @@ vector<Alumno> Agenda::ordenar(){
 			break;
 		}
 	}
+	return v_aux;
 }
