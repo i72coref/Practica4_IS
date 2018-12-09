@@ -2,7 +2,7 @@
 
 Según las historias de Usuario. Vamos a Asignar nuestra prioridad y el tiempo que conllevará cada una.
 
-Para realizar nuestro proyecto, vamos a trabajar un total de **X HORAS**.
+Para realizar nuestro proyecto, vamos a trabajar un total de **31 HORAS**.
 
 ### HU 1 - Uso_Credenciales:
 - Prioridad Usuario: **1**
@@ -14,7 +14,7 @@ _Tiempo Estimado de Desarrolo:_ **3:30h**
 - Prioridad Usuario: **3**
 - Nuestra prioridad: **3**
 
-_Tiempo Estimado de Desarrolo:_ **1:3h**
+_Tiempo Estimado de Desarrolo:_ **1:30h**
 
 ### HU 3 - Introducir_Datos:
 - Prioridad Usuario: **2**
@@ -68,5 +68,5 @@ _Tiempo Estimado de Desarrolo:_ **1:30h**
 - Prioridad Usuario: **3**
 - Nuestra prioridad: **5**
 
-_Tiempo Estimado de Desarrolo:_ **2h**
+_Tiempo Estimado de Desarrolo:_ **1:30h**
 
