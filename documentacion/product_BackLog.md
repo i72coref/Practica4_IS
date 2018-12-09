@@ -1,6 +1,7 @@
 # Product BackLog.
 
-Según las historias de Usuario. Vamos a Asignar nuestra prioridad. Tiempo Total 
+Según las historias de Usuario. Vamos a Asignar nuestra prioridad y el tiempo que conllevará cada una.
+Para realizar nuestro proyecto, vamos a trabajar un total de **X HORAS**.
 
 ### HU 1 - Uso_Credenciales:
 - Prioridad Usuario: **1**
