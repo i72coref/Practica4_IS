@@ -1,4 +1,4 @@
-# Burdown Chart
+# Burndown Chart
 
 Para la entrega de la parte inicial de nuestro proyecto, vamos a realizar un total de 4 sprints.
 
