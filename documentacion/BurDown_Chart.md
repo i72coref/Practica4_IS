@@ -19,3 +19,8 @@ TIEMPO QUE CONLLEVARÁ EL TRABAJO: **31H**.
 ### Sprint 4: (09/12/2018)
 
 - **Horas:** _**3h** (1h Cada miembro)_ **-** Restante: _**13h**_.
+
+
+![Burdown Chart](https://ibb.co/D9Hn3fD "Grafico casi terminado")
+
+
