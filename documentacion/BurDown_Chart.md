@@ -4,7 +4,7 @@ Para la entrega de la parte inicial de nuestro proyecto, vamos a realizar un tot
 
 TIEMPO QUE CONLLEVARÁ EL TRABAJO: **31H**.
 
-### Sprint 1: (01/12/2018)
+### Sprint 1: (02/12/2018)
 
 - **Horas:** _**6h** (2h Cada miembro)_ **-** Restante: _**25h**_.
 
