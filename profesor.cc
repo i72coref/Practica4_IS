@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 using namespace std;
 
@@ -50,7 +51,8 @@ int Profesor::login(){
 
 
 int Profesor::cargar_backup(){
-  string ruta = "" ;
+
+  string ruta = "";
   fstream fichero;
   Alumno aux;
   vector <Alumno> x;
@@ -61,39 +63,40 @@ char texto[200];
   string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
   int dnix, tlfx, grupox, cursox;
 
-  if(rol_ != "coordinador"){return -1;
-  cout<<"Debes ser coordinador"<<endl;}
+//  if(rol_ != "coordinador"){
+//  cout<<"Debes ser coordinador"<<endl;
+//  return -1;}
 
-
-cout<<"Introduce la ruta:";
-cin>>ruta;
 
 while(variable == -1){
+  cout<<"Introduce la ruta o escribe 'defecto' y se cargará la ruta predeterminada: ";
+  cin>>ruta;
 
-  if(ruta == ""){
+
+  if(ruta == "defecto"){
   fichero.open( "backup.bin" , ios::in | ios::binary);
-  fichero >> texto;
-    if(!fichero.eof()){
-      cout<<"Fichero abierto correctamente"<<endl;
-      variable = 0;
+
+
+    if(!fichero){
+      cout<<"Error al abrir"<<endl;
+      variable = -1;
     }
     else{
-      cout<<"Error al abir el fichero"<<endl;
-      variable = -1;
+      cout<<"Exito al abrir"<<endl;
+      variable = 0;
     }
   }//cierro if grande
 
   else{
     fichero.open( ruta.c_str() , ios::in | ios::binary);
-    fichero >> texto;
 
-      if(!fichero.eof()){
-        cout<<"Fichero abierto correctamente"<<endl;
-        variable = 0;
+      if(!fichero){
+        cout<<"Error al abrir"<<endl;
+        variable = -1;
       }
       else{
-        cout<<"Error al abir el fichero"<<endl;
-        variable = -1;
+        cout<<"Exito al abrir"<<endl;
+        variable = 0;
       }
     }//cierro else grande
 }
