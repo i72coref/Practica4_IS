@@ -18,7 +18,7 @@ class Agenda{
 	void borrarAlumno(string, int);// tipo de dato =1 apellido ó 2 dni, se podria hacer sobrecarga de metodos
 	vector<int> buscarAlumno(int, string, int);// tipo de dato =1 apellido , 2 dni ó 3 grupo
 	void mostrarAlumnos();
-	void intoducirAlumnos();
+	void introducirAlumnos();
 	vector<Alumno> ordenar();
 };
 

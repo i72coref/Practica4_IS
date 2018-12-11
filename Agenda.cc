@@ -100,7 +100,7 @@ void Agenda::mostrarAlumnos(){
 	}
 }
 
-void Agenda::intoducirAlumnos(){
+void Agenda::introducirAlumnos(){
 	int nal = 1;
 	do{
 		cout<<"Indique cuantos alumnos desea introducir: ";
@@ -112,40 +112,42 @@ void Agenda::intoducirAlumnos(){
 	while(nal + v_Alumnos.size() > 150);
 	string auxS; //Auxiliar para strings
 	int aunI; //Auxiliar para Enteros
+	Alumno aux;
 	for(int i=0; i<=nal; i++){
-		cout<<"Alumno numero"<< i+1
-		<<"Nombre: ";
+		cout<<"Alumno numero "<< i+1
+		<<"\nNombre: ";
 		setbuf(stdin, NULL);
 		getline(cin, auxS);
-		v_Alumnos[i].setNombre(auxS);
+		aux.setNombre(auxS);
 		cout<<"Apellidos: ";
 		setbuf(stdin, NULL);
 		getline(cin, auxS);
-		v_Alumnos[i].setApellidos(auxS);
+		aux.setApellidos(auxS);
 		cout<<"DNI: ";
 		cin>>aunI;
-		v_Alumnos[i].setDNI(aunI);
+		aux.setDNI(aunI);
 		cout<<"Fecha de nacimiento: ";
 		setbuf(stdin, NULL);
 		getline(cin, auxS);
-		v_Alumnos[i].setFecha_nacimiento(auxS);
+		aux.setFecha_nacimiento(auxS);
 		cout<<"Email: ";
 		setbuf(stdin, NULL);
 		getline(cin, auxS);
-		v_Alumnos[i].setEmail(auxS);
+		aux.setEmail(auxS);
 		cout<<"Direccion: ";
 		setbuf(stdin, NULL);
 		getline(cin, auxS);
-		v_Alumnos[i].setDireccion(auxS);
+		aux.setDireccion(auxS);
 		cout<<"Curso mas alto en el que esta matriculado: ";
 		cin>>aunI;
-		v_Alumnos[i].setCurso(aunI);
+		aux.setCurso(aunI);
 		cout<<"Telefono: ";
 		cin>>aunI;
-		v_Alumnos[i].setTlf(aunI);
+		aux.setTlf(aunI);
 		cout<<"Grupo: ";
 		cin>>aunI;
-		v_Alumnos[i].setGrupo(aunI);
+		aux.setGrupo(aunI);
+		v_Alumnos.push_back(aux);
 		system("clear");
 	}
 	cout<<"En el sistema hay un total de "<<v_Alumnos.size()<<endl;
