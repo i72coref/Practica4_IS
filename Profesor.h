@@ -13,6 +13,8 @@ private:
 public:
 	Profesor(){}
 	int login();
+	int cargar_backup();
+	inline string getRol(){return rol_;}
 
 };
 
