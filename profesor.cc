@@ -1,5 +1,5 @@
 #include <iostream>
-#include "profesor.h"
+#include "Profesor.h"
 #include "Alumno.h"
 #include <list>
 #include <fstream>
@@ -51,12 +51,15 @@ int Profesor::login(){
 
 int Profesor::cargar_backup(){
   string ruta = "" ;
-  ifstream fichero;
+  fstream fichero;
   Alumno aux;
   vector <Alumno> x;
+char texto[200];
+  int variable = -1;
 
   char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
-  string nombrex, apellidosx, dnix, tlfx, grupox, fechanacimientox, emailx, liderx, direccionx, cursox;
+  string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
+  int dnix, tlfx, grupox, cursox;
 
   if(rol_ != "coordinador"){return -1;
   cout<<"Debes ser coordinador"<<endl;}
@@ -65,34 +68,74 @@ int Profesor::cargar_backup(){
 cout<<"Introduce la ruta:";
 cin>>ruta;
 
+while(variable == -1){
 
   if(ruta == ""){
-  //  fichero.open(/*ruta defecto*/ , ios::in | ios::binary);//ruta por defecto
-  }
+  fichero.open( "backup.bin" , ios::in | ios::binary);
+  fichero >> texto;
+    if(!fichero.eof()){
+      cout<<"Fichero abierto correctamente"<<endl;
+      variable = 0;
+    }
+    else{
+      cout<<"Error al abir el fichero"<<endl;
+      variable = -1;
+    }
+  }//cierro if grande
 
   else{
     fichero.open( ruta.c_str() , ios::in | ios::binary);
-  }
+    fichero >> texto;
 
-  while(fichero.read((char *)&nombre, 30)){
-    fichero.read((char *)&apellidos, 30);
-    fichero.read((char *)&dni, 30);
-    fichero.read((char *)&fechanacimiento, 30);
-    fichero.read((char *)&email, 30);
-    fichero.read((char *)&direccion, 30);
+      if(!fichero.eof()){
+        cout<<"Fichero abierto correctamente"<<endl;
+        variable = 0;
+      }
+      else{
+        cout<<"Error al abir el fichero"<<endl;
+        variable = -1;
+      }
+    }//cierro else grande
+}
+
+
+
+  while(fichero.read((char *)&dni, 30)){
     fichero.read((char *)&curso, 30);
     fichero.read((char *)&tlf, 30);
     fichero.read((char *)&grupo, 30);
+    fichero.read((char *)&nombre, 30);
+    fichero.read((char *)&apellidos, 30);
+    fichero.read((char *)&fechanacimiento, 30);
+    fichero.read((char *)&email, 30);
+    fichero.read((char *)&direccion, 30);
     fichero.read((char *)&lider, 30);
 
-    int curso2 = atoi(curso);
-    int dni2 = atoi(dni);
-    int tlf2 = atoi(tlf);
-    int grupo2 = atoi(grupo);
+    cursox = atoi(curso);
+    dnix = atoi(dni);
+    tlfx = atoi(tlf);
+    grupox = atoi(grupo);
 
-    bool lider2 = lider;
+    bool liderx = lider;
 
-      aux.setNombre();
+    nombrex = nombre;
+    apellidosx = apellidos;
+    fechanacimientox = fechanacimiento;
+    emailx = email;
+    direccionx = direccion;
+
+      aux.setDNI(dnix);
+      aux.setCurso(cursox);
+      aux.setTlf(tlfx);
+      aux.setGrupo(grupox);
+      aux.setNombre(nombrex);
+      aux.setApellidos(apellidosx);
+      aux.setFecha_nacimiento(fechanacimientox);
+      aux.setEmail(emailx);
+      aux.setDireccion(direccionx);
+      aux.setLider(liderx);
+
+      x.push_back(aux);
 
   }
 
