@@ -25,7 +25,7 @@ bool Agenda::gestionLideres(){
 	return true;
 }
 
-vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tipo = 2){// tipo de dato =1 apellido , 2 dni ó 3 
+vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tipo = 1){// tipo de dato =1 apellido , 2 dni ó 3 grupo
 //	Creo el vector de indices
 	vector<int> indices;
 
@@ -62,7 +62,7 @@ void Agenda::mostrarAlumnos(){
 	cout<<"Elija una opcion:\n"
 	<<"\t1 Mostrar todos los alumnos.\n"
 	<<"\t2 Mostrar uno o varios alumnos."
-	<<"Opcion: ";
+	<<"\nOpcion: ";
 	cin>>op;
 
 	switch(op){
@@ -72,16 +72,16 @@ void Agenda::mostrarAlumnos(){
 		}
 		case 1:{
 			v_aux = ordenar();
-			for(int i=0; i<v_Alumnos.size(); i++){
+			for(int i=0; i<v_aux.size(); i++){
 				//Creo un vector auxiliar, para al ordenar no modificar el vector orginal
 
-				if(v_Alumnos[i].getLider() == true){
-					cout<<"\e[1m "/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[i].getNombre()<<"\e[0m non-bold"/*desactiva resaltado*/<<endl;
+				if(v_aux[i].getLider() == true){
+					cout<<"\e[1m "/*Activa resaltado*/<<"--> Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 				}
 				else{
-					cout<<"Nombre: "<<v_Alumnos[i].getNombre()<<endl;
+					cout<<"Nombre: "<<v_aux[i].getNombre()<<endl;
 				}
-				cout<<"El alumno numero"<< i+1 <<"es:"
+				cout<<"El alumno numero "<< i+1 <<" es:"
 				<<"\nApellidos: "<<v_aux[i].getApellidos()
 				<<"\nDNI: "<<v_aux[i].getDNI()
 				<<"\nFecha de nacimiento: "<<v_aux[i].getFecha_nacimiento()
@@ -89,7 +89,7 @@ void Agenda::mostrarAlumnos(){
 				<<"\nDireccion: "<<v_aux[i].getDireccion()
 				<<"\nCurso mas alto en el que esta matriculado: "<<v_aux[i].getCurso()
 				<<"\nTelefono: "<<v_aux[i].getTlf()
-				<<"\nGrupo: "<<v_aux[i].getGrupo()<<endl;
+				<<"\nGrupo: "<<v_aux[i].getGrupo()<<"\n"<<endl;
 			}
 			break;
 		}
@@ -112,8 +112,9 @@ void Agenda::introducirAlumnos(){
 	while(nal + v_Alumnos.size() > 150);
 	string auxS; //Auxiliar para strings
 	int aunI; //Auxiliar para Enteros
+	bool auxB;
 	Alumno aux;
-	for(int i=0; i<=nal; i++){
+	for(int i=0; i<nal; i++){
 		cout<<"Alumno numero "<< i+1
 		<<"\nNombre: ";
 		setbuf(stdin, NULL);
@@ -147,6 +148,10 @@ void Agenda::introducirAlumnos(){
 		cout<<"Grupo: ";
 		cin>>aunI;
 		aux.setGrupo(aunI);
+		cout<<"¿Lider?, 0 = NO, 1 = SI: ";
+		cin>>auxB;
+		aux.setLider(auxB);
+
 		v_Alumnos.push_back(aux);
 		system("clear");
 	}
@@ -161,11 +166,12 @@ vector<Alumno> Agenda::ordenar(){
 
 	cout<<"Como desea ordenar el vector."
 	<<"\n\t1. Por DNI ascendente."
-	<<"\n\t1. Por DNI descendente."
+	<<"\n\t2. Por DNI descendente."
 	<<"\n\t3. Por apellidos."
 	<<"\n\t4. Por curso mas alto ascendente."
 	<<"\n\t5. Por curso mas alto descendente."
 	<<"\n\t6. Por nommbre."<<endl;
+	cin>>op;
 
 	switch(op){
 		default:{

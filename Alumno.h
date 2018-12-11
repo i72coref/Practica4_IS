@@ -12,7 +12,9 @@ private:
 	bool lider_;
 public:
 //	Setters
-	Alumno(){};
+	Alumno(){
+		lider_ = false;
+	};
 	inline void setDNI(int DNI){DNI_ = DNI;}
 	inline void setCurso(int curso){curso_ = curso;}
 	inline void setTlf(int tlf){tlf_ = tlf;}
