@@ -7,7 +7,6 @@
 using namespace std;
 
 int Profesor::login(){
-  int contador = 0;
   string contra , usuario;
   ifstream fichero;
   char us[35] , pass[30];
@@ -20,7 +19,7 @@ int Profesor::login(){
   cin>>contra;
   string rol;
 
-  //fichero.open(  , ios::in | ios::binary );//queda poner la ruta
+  fichero.open("credenciales.bin" , ios::in | ios::binary );//queda poner la ruta
 
   for(int i= 0 ; i< 5 ; i++){
 
@@ -37,11 +36,11 @@ int Profesor::login(){
                 if(rol == "cor"){rol_ = "coordinador";}
                 if(rol == "ayu"){rol_ = "ayudante";}
 
-              return 0;
+              return 0; //Se ha logueado bien (las credenciales coinciden)
             }
         }
     }
   }
 
-  return -1;
+  return -1; //Se ha logueado mal.
 }
