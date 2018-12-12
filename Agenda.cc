@@ -52,6 +52,19 @@ vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tip
 			break;
 		}
 	}
+//	En el caso de que se busque por apellido y existan varias coinciidencias hay que buscar por DNI
+	if((indices.size() > 1 )&&(tipo = 1)){
+		cout<<"Hay mas de un alumno con los mismos apellidos, asi que se va a buscar por DNI"<<endl;
+		cout<<"Indique que DNI desea buscar: ";
+		cin>>entero;
+		indices.clear();
+		for(int i=0; i < v_Alumnos.size(); i++){
+			if(v_Alumnos[i].getDNI() == entero){
+				indices.push_back(i);
+			}		
+		}
+	}
+
 //	Devuelvo los indices encontados
 	return indices;
 }
