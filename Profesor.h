@@ -18,8 +18,8 @@ public:
 	int cargar_backup();
 	int cargar_almacenamiento();
 
-    int hacer_backup();
-    int guardar_almacenamiento();
+  int hacer_backup();
+  int guardar_almacenamiento();
 
 
 };
