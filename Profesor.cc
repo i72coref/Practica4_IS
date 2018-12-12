@@ -4,9 +4,11 @@
 #include <list>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+
 using namespace std;
 
 int Profesor::login(){
@@ -148,7 +150,7 @@ x = ag.getAlumnos();
 cout<<"Fichero cargado con exito"<<endl;
 }
 
-  
+
   int Profesor::cargar_almacenamiento(){
 
   Agenda ag;
@@ -220,7 +222,7 @@ int i = 0;
       aux.setLider(liderx);
 
       x.push_back(aux);
-      
+
   }
 
   ag.setAlumnos(x);
@@ -229,6 +231,7 @@ fichero.close();
 
   cout<<"Fichero cargado correctamente"<<endl;
 }
+
 
 int Profesor::hacer_backup(){
   vector <Alumno> x;
@@ -240,10 +243,11 @@ int Profesor::hacer_backup(){
     int xtam = x.size();
 
 
-  char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
-  string nombrex, apellidosx, fechanacimientox, emailx, direccionx, dnis, grupos, tlfs, grupos;
-  int dnix, tlfx, grupox, cursox;
-  bool liderx;
+  char apellidos[30];
+  char nombre[30];
+  char fechanacimiento[30], email[30], direccion[30];
+  int dni, tlf, grupo, curso;
+  bool serlider;
 
   if(rol_ != "coordinador"){
   cout<<"Debes ser coordinador"<<endl;
@@ -252,32 +256,36 @@ int Profesor::hacer_backup(){
 
   cout<<"Introduce la Ruta: ";
   cin>>ruta;
-  fstream f;
-  f.open(ruta, ios::out|ios::binary);
+  
+  fstream file;
+file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
     cout <<"Exito al CREAR!!"<<endl;
+
+
     for(int i=0; i<x.size(); i++){
 
-      dnix = x[i].getDNI();
-      dnis = to_string(dnix); //Pasamos el int a string
-      dni = dnis.c_str(); //Se pasa el string a char
-      cursox = x[i].getCurso();
+      dni = (x[i]).getDNI();
+      curso = (x[i]).getCurso();
+      tlf = (x[i]).getTlf();
+      grupo = (x[i]).getGrupo();
 
-      tlfx = x[i].getTlf();
-      tlfs = to_string(tlfx);
-      tlf = tlfs.c_str();
-      grupox = x[i].getGrupo();
-      nombrex = x[i].getNombre();
-      apellidosx = x[i].getApellidos();
-      fechanacimientox = x[i].getFecha_nacimiento();
-      emailx = x[i].getEmail();
-      direccionx = x[i].getDireccion();
-      liderx = x[i].getLider();
+      strcpy(nombre, ((x[i]).getNombre()).c_str());
+      strcpy(apellidos, ((x[i]).getApellidos()).c_str());
+      strcpy(fechanacimiento, ((x[i]).getFecha_nacimiento()).c_str());
+      strcpy(email, ((x[i]).getEmail()).c_str());
+      strcpy(direccion, ((x[i]).getDireccion()).c_str());
+      serlider = (x[i]).getLider();
 
-      //f.write((char *) &dni, 30);
-
-    }
-  f.close();
+      file.write((char *) &dni, sizeof(int));
+      file.write((char *) &curso, sizeof(int));
+      file.write((char *) &tlf, sizeof(int));
+      file.write((char *) &grupo, sizeof(int));
+      file.write((char *) &nombre, 30);
+      file.write((char *) &apellidos, 30);
+      file.write((char *) &fechanacimiento, 30);
+      file.write((char *) &email, 30);
+      file.write((char *) &direccion, 30);
+      file.write((char *) &serlider, sizeof(bool));
+     }
+file.close();
 }
-
-
-  
