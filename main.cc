@@ -9,7 +9,7 @@
 using namespace std;
 
 //Prototipos de funciones
-void firstmenu(Profesor prof);
+void firstmenu(Profesor prof, Agenda age);
 void menu(Profesor prof, Agenda age);
 
 
@@ -18,12 +18,12 @@ int main(){
 	Profesor prof;
 
 //	Menu inicial, al abrir el programa.
-	firstmenu(prof);
+	firstmenu(prof, age);
 
 	return 0;
 }
 
-void firstmenu(Profesor prof){
+void firstmenu(Profesor prof, Agenda age){
 	int opcion=0, intentos=5;
 	cout<<">.----------------------------------------------------------------------.<"<<endl;
 	cout<<"\tHOLA, BIEN VENIDO AL SISTEMA."<<endl;
@@ -43,7 +43,7 @@ void firstmenu(Profesor prof){
 				if (prof.login() == 0){
 					intentos=0;
 					cout<<"EXITO!"<<endl;
-					menu(prof);
+					menu(prof, age);
 				}
 				else{
 					intentos--;
@@ -60,29 +60,42 @@ void firstmenu(Profesor prof){
 			break;
 		}
 	}
-
 }
+
 void menu(Profesor prof, Agenda age){
 
-//	Menu reducido para ayudantes
-//	string rol= prof.getRol();
 int opcion;
-// age.cargarAlmacenamiento();
-while(opcion>0){
+	age.setAlumnos(prof.cargar_almacenamiento());
+	cout<<"Los datos se han cargado correctamente"<<endl;
+
+while(opcion>=0){
  cout<<">.----------------------------------------------------------------------.<"<<endl;
- cout<<"\tEstas logueado como: "<<"rol"<<"."<<endl;
+ cout<<"\tEstas logueado como: "<< prof.getRol() <<"."<<endl;
  cout<<"\t"<<endl;
  cout<<"\t 1. Introducir alumnos."<<endl;
  cout<<"\n\t 2. Borrar Alumno."<<endl;
  cout<<"\n\t 3. Mostrar Alumnos."<<endl;
-	/*if(prof.getRol()){
+	if(prof.getRol()=="coordinador"){
 	 cout<<"\n\t4. Hacer Backup."
 	 <<"\n\t5. Cargar Backup."<<endl;
- }*/
+ }
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"opcion: ";
  cin>>opcion;
  	switch(opcion){
+
+	 case 0:
+
+	/*Al elegir la opcion del salir del programa,
+	vamos a guardar todos los datos trabajados*/
+
+		cout<<"SALIENDO..."<<endl;
+		cout<<endl;
+		if(prof.guardar_almacenamiento()==0){
+			cout<<"Datos guardados correctamente."<<endl;}
+		else{ cout<<"Error al guardar los datos."<<endl;}
+ 		exit(0);
+	 break;
 
 	 case 1:
 	 	age.introducirAlumnos();
@@ -93,7 +106,7 @@ while(opcion>0){
 	 break;
 
 	 case 3:
-	 	age.MostrarAlumnos();
+	 	age.mostrarAlumnos();
 	 break;
 
 	 case 4:
@@ -106,14 +119,6 @@ while(opcion>0){
 
 	 break;
 
-	 case 6:
-	 	exit(0); //Exit Coordinador.
-	 break;
-
-	 case 7:
-	 	exit(0); //Exit ayudante.
-	 break;
   }
  }
 }
-
