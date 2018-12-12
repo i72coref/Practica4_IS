@@ -65,9 +65,8 @@ void firstmenu(Profesor prof, Agenda age){
 void menu(Profesor prof, Agenda age){
 
 int opcion;
-if(prof.cargar_almacenamiento()==0){
-	cout<<"Los datos se han cargado correctamente"<<endl;}
-else {cout<<"No se han encontrado datos para cargar"<<endl;}
+	age.setAlumnos(prof.cargar_almacenamiento());
+	cout<<"Los datos se han cargado correctamente"<<endl;
 
 while(opcion>=0){
  cout<<">.----------------------------------------------------------------------.<"<<endl;
