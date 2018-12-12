@@ -71,6 +71,7 @@ vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tip
 
 void Agenda::mostrarAlumnos(){
 	vector<Alumno> v_aux;
+	vector<int> indices;
 	int op = 1;
 	cout<<"Elija una opcion:\n"
 	<<"\t1 Mostrar todos los alumnos.\n"
@@ -101,13 +102,14 @@ void Agenda::mostrarAlumnos(){
 				<<"\nEmail: "<<v_aux[i].getEmail()
 				<<"\nDireccion: "<<v_aux[i].getDireccion()
 				<<"\nCurso mas alto en el que esta matriculado: "<<v_aux[i].getCurso()
-				<<"\nTelefono: "<<v_aux[i].getTlf()
-				<<"\nGrupo: "<<v_aux[i].getGrupo()<<"\n"<<endl;
+				<<"\nTelefono: "<<v_aux[i].getTlf()<<endl;
+				if(v_aux[i].getGrupo() != -1){
+					cout<<"Grupo: "<<v_aux[i].getGrupo()<<"\n"<<endl;
+				}
 			}
 			break;
 		}
 		case 2:{
-			vector<int> indices;
 			cout<<"Como desea buscar\n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
 			cin>>op;
 			switch(op){
@@ -141,21 +143,24 @@ void Agenda::mostrarAlumnos(){
 		}
 	}
 	for(int i=0; i<indices.size(); i++){
-		if(v_aux[i].getLider() == true){
-			cout<<"\e[1m "/*Activa resaltado*/<<"--> Nombre: "<<v_Alumnos[v_aux[i]].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+		int j = indices[i];
+		if(v_Alumnos[j].getLider() == true){
+			cout<<"\e[1m "/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[j].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 		}
 		else{
-			cout<<"Nombre: "<<v_Alumnos[v_aux[i]].getNombre()<<endl;
+			cout<<"Nombre: "<<v_Alumnos[j].getNombre()<<endl;
 		}
 		cout<<"El alumno numero "<< i+1 <<" es:"
-		<<"\nApellidos: "<<v_Alumnos[v_aux[i]].getApellidos()
-		<<"\nDNI: "<<v_Alumnos[v_aux[i]].getDNI()
-		<<"\nFecha de nacimiento: "<<v_aux[i].getFecha_nacimiento()
-		<<"\nEmail: "<<v_Alumnos[v_aux[i]].getEmail()
-		<<"\nDireccion: "<<v_Alumnos[v_aux[i]].getDireccion()
-		<<"\nCurso mas alto en el que esta matriculado: "<<v_aux[i].getCurso()
-		<<"\nTelefono: "<<v_Alumnos[v_aux[i]].getTlf()
-		<<"\nGrupo: "<<v_Alumnos[v_aux[i]].getGrupo()<<"\n"<<endl;
+		<<"\nApellidos: "<<v_Alumnos[j].getApellidos()
+		<<"\nDNI: "<<v_Alumnos[j].getDNI()
+		<<"\nFecha de nacimiento: "<<v_Alumnos[j].getFecha_nacimiento()
+		<<"\nEmail: "<<v_Alumnos[j].getEmail()
+		<<"\nDireccion: "<<v_Alumnos[j].getDireccion()
+		<<"\nCurso mas alto en el que esta matriculado: "<<v_Alumnos[j].getCurso()
+		<<"\nTelefono: "<<v_Alumnos[j].getTlf()<<endl;
+		if(v_Alumnos[j].getGrupo() != -1){
+			cout<<"Grupo: "<<v_Alumnos[j].getGrupo()<<"\n"<<endl;
+		}
 	}
 }
 
