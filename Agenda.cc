@@ -115,42 +115,88 @@ void Agenda::introducirAlumnos(){
 	bool auxB;
 	Alumno aux;
 	for(int i=0; i<nal; i++){
-		cout<<"Alumno numero "<< i+1
-		<<"\nNombre: ";
-		setbuf(stdin, NULL);
-		getline(cin, auxS);
-		aux.setNombre(auxS);
-		cout<<"Apellidos: ";
-		setbuf(stdin, NULL);
-		getline(cin, auxS);
-		aux.setApellidos(auxS);
+		cout<<"Alumno numero "<< i+1<<endl;
+		
+		do{
+			cout<<"Nombre: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxS);
+			if(auxS.empty()){
+				cout<<"El nombre es obligatorio"<<endl;
+			}
+			aux.setNombre(auxS);
+		}
+		while(auxS.empty());
+		auxS.clear(); //para que la cadena vuelva a estar vacia
+
+		do{
+			cout<<"Apellidos: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxS);
+			aux.setApellidos(auxS);
+			if(auxS.empty()){
+				cout<<"Los apellidos son obligatorios"<<endl;
+			}
+		}
+		while(auxS.empty());
+		auxS.clear();		
+
 		cout<<"DNI: ";
 		cin>>aunI;
 		aux.setDNI(aunI);
-		cout<<"Fecha de nacimiento: ";
-		setbuf(stdin, NULL);
-		getline(cin, auxS);
-		aux.setFecha_nacimiento(auxS);
-		cout<<"Email: ";
-		setbuf(stdin, NULL);
-		getline(cin, auxS);
-		aux.setEmail(auxS);
-		cout<<"Direccion: ";
-		setbuf(stdin, NULL);
-		getline(cin, auxS);
-		aux.setDireccion(auxS);
+
+		do{
+			cout<<"Fecha de nacimiento: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxS);
+			aux.setFecha_nacimiento(auxS);
+		}
+		while(auxS.empty());
+		auxS.clear();		
+
+		do{
+			cout<<"Email: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxS);
+			aux.setEmail(auxS);
+		}
+		while(auxS.empty());
+		auxS.clear();		
+
+		do{
+			cout<<"Direccion: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxS);
+			aux.setDireccion(auxS);
+		}
+		while(auxS.empty());
+		auxS.clear();		
+
 		cout<<"Curso mas alto en el que esta matriculado: ";
 		cin>>aunI;
 		aux.setCurso(aunI);
+
 		cout<<"Telefono: ";
 		cin>>aunI;
 		aux.setTlf(aunI);
-		cout<<"Grupo: ";
-		cin>>aunI;
-		aux.setGrupo(aunI);
-		cout<<"¿Lider?, 0 = NO, 1 = SI: ";
-		cin>>auxB;
-		aux.setLider(auxB);
+
+//		Variables opcionales
+		int op = 0;
+		cout<<"¿Desea introducir las opciones de grupo? (1 = SI, 0 = NO)\nOpcion: ";
+		cin>>op;
+		if(op == 1){
+			cout<<"Grupo: ";
+			cin>>aunI;
+			aux.setGrupo(aunI);
+			
+			cout<<"¿Lider? (0 = NO, 1 = SI), Opcion:";
+			cin>>auxB;
+			aux.setLider(auxB);
+		}
+		else{ //Si el grupo es -1 significa que no tiene grupo
+			aux.setGrupo(-1);
+			aux.setLider(false);
+		}
 
 		v_Alumnos.push_back(aux);
 		system("clear");
