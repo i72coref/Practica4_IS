@@ -53,7 +53,7 @@ vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tip
 		}
 	}
 //	En el caso de que se busque por apellido y existan varias coinciidencias hay que buscar por DNI
-	if((indices.size() > 1 )&&(tipo = 1)){
+	if((indices.size() > 1 )&&(tipo == 1)){
 		cout<<"Hay mas de un alumno con los mismos apellidos, asi que se va a buscar por DNI"<<endl;
 		cout<<"Indique que DNI desea buscar: ";
 		cin>>entero;
@@ -110,9 +110,10 @@ void Agenda::mostrarAlumnos(){
 			break;
 		}
 		case 2:{
+			int op2;
 			cout<<"Como desea buscar\n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
-			cin>>op;
-			switch(op){
+			cin>>op2;
+			switch(op2){
 				default:{
 					cout<<"ERROR, opcion no encontrada"<<endl;
 				break;
@@ -134,6 +135,7 @@ void Agenda::mostrarAlumnos(){
 				case 3:{
 					string auxAp;
 					cout<<"Que Apellidos desea buscar: ";
+					setbuf(stdin, NULL);
 					getline(cin, auxAp);
 					indices = buscarAlumno(-1, auxAp, 1);
 				break;
