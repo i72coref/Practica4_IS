@@ -256,10 +256,15 @@ int Profesor::hacer_backup(){
 
   cout<<"Introduce la Ruta: ";
   cin>>ruta;
-  
+
   fstream file;
 file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
-    cout <<"Exito al CREAR!!"<<endl;
+
+  if(!file){
+  cout<<"Error al abrir"<<endl;
+  return -1;}
+
+  else{cout <<"Exito al CREAR!!"<<endl;}
 
 
     for(int i=0; i<x.size(); i++){
@@ -288,4 +293,67 @@ file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
       file.write((char *) &serlider, sizeof(bool));
      }
 file.close();
+return 0;
+}
+
+int Profesor::guardar_almacenamiento(){
+
+  vector <Alumno> x;
+  Alumno aux;
+  Agenda age;
+
+  x = age.getAlumnos();
+
+    int xtam = x.size();
+
+
+  char apellidos[30];
+  char nombre[30];
+  char fechanacimiento[30], email[30], direccion[30];
+  int dni, tlf, grupo, curso;
+  bool serlider;
+
+  string ruta;
+
+  cout<<"Introduce la Ruta: ";
+  cin>>ruta;
+
+  fstream file;
+file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
+
+  if(!file){
+    cout<<"Error al abrir"<<endl;
+    return -1;}
+
+    else{cout <<"Exito al CREAR!!"<<endl;}
+
+    for(int i=0; i<x.size(); i++){
+
+      dni = (x[i]).getDNI();
+      curso = (x[i]).getCurso();
+      tlf = (x[i]).getTlf();
+      grupo = (x[i]).getGrupo();
+
+      strcpy(nombre, ((x[i]).getNombre()).c_str());
+      strcpy(apellidos, ((x[i]).getApellidos()).c_str());
+      strcpy(fechanacimiento, ((x[i]).getFecha_nacimiento()).c_str());
+      strcpy(email, ((x[i]).getEmail()).c_str());
+      strcpy(direccion, ((x[i]).getDireccion()).c_str());
+      serlider = (x[i]).getLider();
+
+      file.write((char *) &dni, sizeof(int));
+      file.write((char *) &curso, sizeof(int));
+      file.write((char *) &tlf, sizeof(int));
+      file.write((char *) &grupo, sizeof(int));
+      file.write((char *) &nombre, 30);
+      file.write((char *) &apellidos, 30);
+      file.write((char *) &fechanacimiento, 30);
+      file.write((char *) &email, 30);
+      file.write((char *) &direccion, 30);
+      file.write((char *) &serlider, sizeof(bool));
+     }
+file.close();
+return 0;
+
+
 }
