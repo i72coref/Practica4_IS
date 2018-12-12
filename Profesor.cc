@@ -55,6 +55,7 @@ int Profesor::cargar_backup(){
   string ruta = "";
   fstream fichero;
   Alumno aux;
+  Agenda ag;
   vector <Alumno> x;
 char texto[200];
   int variable = -1;
@@ -101,7 +102,7 @@ while(variable == -1){
     }//cierro else grande
 }
 
-
+x = ag.getAlumnos();
 
   while(fichero.read((char *)&dni, 30)){
     fichero.read((char *)&curso, 30);
@@ -142,6 +143,94 @@ while(variable == -1){
 
   }
 
+  fichero.close();
+  ag.setAlumnos(x);
+cout<<"Fichero cargado con exito"<<endl;
+}
+
+  
+  int Profesor::cargar_almacenamiento(){
+
+  Agenda ag;
+  string ruta = "defecto";
+  fstream fichero;
+  Alumno aux;
+  vector <Alumno> x;
+char texto[200];
+
+
+  char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
+  string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
+  int dnix, tlfx, grupox, cursox;
+
+//  if(rol_ != "coordinador"){
+//  cout<<"Debes ser coordinador"<<endl;
+//  return -1;}
+
+
+
+  if(ruta == "defecto"){
+  fichero.open( "backup.bin" , ios::in | ios::binary);//ruta predeterminada
+
+
+    if(!fichero){
+      cout<<"Error al abrir"<<endl;
+    }
+    else{
+      cout<<"Exito al abrir"<<endl;
+    }
+  }//cierro if grande
+
+x = ag.getAlumnos();
+int i = 0;
+
+  while(fichero.read((char *)&dni, 30)){
+    fichero.read((char *)&curso, 30);
+    fichero.read((char *)&tlf, 30);
+    fichero.read((char *)&grupo, 30);
+    fichero.read((char *)&nombre, 30);
+    fichero.read((char *)&apellidos, 30);
+    fichero.read((char *)&fechanacimiento, 30);
+    fichero.read((char *)&email, 30);
+    fichero.read((char *)&direccion, 30);
+    fichero.read((char *)&lider, 30);
+
+    cursox = atoi(curso);
+    dnix = atoi(dni);
+    tlfx = atoi(tlf);
+    grupox = atoi(grupo);
+
+    bool liderx = lider;
+
+    nombrex = nombre;
+    apellidosx = apellidos;
+    fechanacimientox = fechanacimiento;
+    emailx = email;
+    direccionx = direccion;
+
+      aux.setDNI(dnix);
+      aux.setCurso(cursox);
+      aux.setTlf(tlfx);
+      aux.setGrupo(grupox);
+      aux.setNombre(nombrex);
+      aux.setApellidos(apellidosx);
+      aux.setFecha_nacimiento(fechanacimientox);
+      aux.setEmail(emailx);
+      aux.setDireccion(direccionx);
+      aux.setLider(liderx);
+
+      x.push_back(aux);
+      
+  }
+
+  ag.setAlumnos(x);
+
 fichero.close();
 
+  cout<<"Fichero cargado correctamente"<<endl;
 }
+
+
+
+
+  

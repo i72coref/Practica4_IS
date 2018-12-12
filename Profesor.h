@@ -15,7 +15,11 @@ public:
 	int login();
 	int cargar_backup();
 	inline string getRol(){return rol_;}
+	int cargar_almacenamiento();
 
 };
+
+
+
 
 #endif
