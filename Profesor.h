@@ -12,11 +12,12 @@ private:
 	string rol_;
 public:
 	Profesor(){}
+
 	int login();
 	inline string getRol(){return rol_;}
 
-	int cargar_backup();
-	int cargar_almacenamiento();
+	vector<Alumno> cargar_backup();
+	vector<Alumno> cargar_almacenamiento();
 
   int hacer_backup();
   int guardar_almacenamiento();

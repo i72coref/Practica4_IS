@@ -20,13 +20,13 @@ Nuestro Equipo está formado por:
 
 A lo largo de los cuatro Sprints realizados en la Fase Inicial, cada programador ha trabajado:
 
-### Sprint 1: (02/12/2018).
+### Sprint 1: 1 - 6 diciembre 2018.
 
  - **i7lopca**: creación de la Clase: Profesor.
  - **i72coref**: creación de la Clase: Agenda.
  - **i72caora**: creación de la Clase: Alumno.
 
-### Sprint 2: (05/12/2018).
+### Sprint 2: 7 - 14 diciembre 2018.
 
  - **i7lopca**: comienzo de la función Busqueda_Datos.
  - **i72coref**: comienzo de la función Busqueda_Datos.

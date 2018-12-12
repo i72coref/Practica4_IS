@@ -52,7 +52,7 @@ int Profesor::login(){
 
 
 
-int Profesor::cargar_backup(){
+vector<Alumno> Profesor::cargar_backup(){
 
   string ruta = "";
   fstream fichero;
@@ -146,12 +146,12 @@ x = ag.getAlumnos();
   }
 
   fichero.close();
-  ag.setAlumnos(x);
 cout<<"Fichero cargado con exito"<<endl;
+return x;
 }
 
 
-  int Profesor::cargar_almacenamiento(){
+  vector<Alumno> Profesor::cargar_almacenamiento(){
 
   Agenda ag;
   string ruta = "defecto";
@@ -176,7 +176,7 @@ char texto[200];
 
 
     if(!fichero){
-      cout<<"Error al abrir"<<endl;
+      cout<<"Error al abrir el fichero"<<endl;
     }
     else{
       cout<<"Exito al abrir"<<endl;
@@ -184,7 +184,7 @@ char texto[200];
   }//cierro if grande
 
 x = ag.getAlumnos();
-int i = 0;
+
 
   while(fichero.read((char *)&dni, 30)){
     fichero.read((char *)&curso, 30);
@@ -225,11 +225,10 @@ int i = 0;
 
   }
 
-  ag.setAlumnos(x);
-
 fichero.close();
 
-  cout<<"Fichero cargado correctamente"<<endl;
+  cout<<"Fichero almacenamiento cargado correctamente"<<endl;
+  return x;
 }
 
 

@@ -3,23 +3,43 @@
 #include <cstdio>
 #include <cstdlib>
 
-void Agenda::borrarAlumno(string dato, int tipo = 0){ //tipo de dato : 1 apellido, 2 dni
-	switch(tipo){
+void Agenda::borrarAlumno(){ //tipo de dato : 1 apellido, 2 dni
+	vector<int> indices;
+	int op;
+	cout<<"Que desea borrar: "
+	<<"\n\t1.Por apellidos"
+	<<"\n\t2.Por DNI"
+	<<"\nOpcion: ";
+	cin>>op;
+	
+	switch(op){
 		case 1:{
-			cout<<"W.I.P, tipo = apellido"<<endl;
-			break;
+			string auxAp;
+			cout<<"Que Apellidos desea buscar: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxAp);
+			indices = buscarAlumno(-1, auxAp, 1);
+		break;
 		}
 		case 2:{
-			cout<<"W.I.P, tipo = dni"<<endl;
-			break;
+			int auxDNI;
+			cout<<"Que DNI desea borrar: ";
+			cin>>auxDNI;
+			indices = buscarAlumno(auxDNI, "empty", 2);
+		break;
 		}
 		default:{
 			cout<<"ERROR, tipo de dato no conocido."<<endl;
 			break;
 		}
 	}
-
+	for(int i=0; i<indices.size(); i++){
+		int j = indices[i];
+		v_Alumnos.erase(v_Alumnos.begin()+j);
+	}
+	cout<<"En el sistema hay un total de "<<v_Alumnos.size()<<endl;
 }
+
 bool Agenda::gestionLideres(){
 	printf("Gestionando lideres.\n");
 	return true;
@@ -53,7 +73,7 @@ vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tip
 		}
 	}
 //	En el caso de que se busque por apellido y existan varias coinciidencias hay que buscar por DNI
-	if((indices.size() > 1 )&&(tipo = 1)){
+	if((indices.size() > 1 )&&(tipo == 1)){
 		cout<<"Hay mas de un alumno con los mismos apellidos, asi que se va a buscar por DNI"<<endl;
 		cout<<"Indique que DNI desea buscar: ";
 		cin>>entero;
@@ -110,9 +130,10 @@ void Agenda::mostrarAlumnos(){
 			break;
 		}
 		case 2:{
+			int op2;
 			cout<<"Como desea buscar\n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
-			cin>>op;
-			switch(op){
+			cin>>op2;
+			switch(op2){
 				default:{
 					cout<<"ERROR, opcion no encontrada"<<endl;
 				break;
@@ -134,6 +155,7 @@ void Agenda::mostrarAlumnos(){
 				case 3:{
 					string auxAp;
 					cout<<"Que Apellidos desea buscar: ";
+					setbuf(stdin, NULL);
 					getline(cin, auxAp);
 					indices = buscarAlumno(-1, auxAp, 1);
 				break;
