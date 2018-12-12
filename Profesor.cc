@@ -230,7 +230,54 @@ fichero.close();
   cout<<"Fichero cargado correctamente"<<endl;
 }
 
+int Profesor::hacer_backup(){
+  vector <Alumno> x;
+  Alumno aux;
+  Agenda age;
 
+  x = age.getAlumnos();
+
+    int xtam = x.size();
+
+
+  char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
+  string nombrex, apellidosx, fechanacimientox, emailx, direccionx, dnis, grupos, tlfs, grupos;
+  int dnix, tlfx, grupox, cursox;
+  bool liderx;
+
+  if(rol_ != "coordinador"){
+  cout<<"Debes ser coordinador"<<endl;
+  return -1;}
+  string ruta;
+
+  cout<<"Introduce la Ruta: ";
+  cin>>ruta;
+  fstream f;
+  f.open(ruta, ios::out|ios::binary);
+    cout <<"Exito al CREAR!!"<<endl;
+    for(int i=0; i<x.size(); i++){
+
+      dnix = x[i].getDNI();
+      dnis = to_string(dnix); //Pasamos el int a string
+      dni = dnis.c_str(); //Se pasa el string a char
+      cursox = x[i].getCurso();
+
+      tlfx = x[i].getTlf();
+      tlfs = to_string(tlfx);
+      tlf = tlfs.c_str();
+      grupox = x[i].getGrupo();
+      nombrex = x[i].getNombre();
+      apellidosx = x[i].getApellidos();
+      fechanacimientox = x[i].getFecha_nacimiento();
+      emailx = x[i].getEmail();
+      direccionx = x[i].getDireccion();
+      liderx = x[i].getLider();
+
+      //f.write((char *) &dni, 30);
+
+    }
+  f.close();
+}
 
 
   

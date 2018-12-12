@@ -13,9 +13,14 @@ private:
 public:
 	Profesor(){}
 	int login();
-	int cargar_backup();
 	inline string getRol(){return rol_;}
+
+	int cargar_backup();
 	int cargar_almacenamiento();
+
+    int hacer_backup();
+    int guardar_almacenamiento();
+
 
 };
 
