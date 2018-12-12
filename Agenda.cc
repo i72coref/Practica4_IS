@@ -106,10 +106,56 @@ void Agenda::mostrarAlumnos(){
 			}
 			break;
 		}
-		case 2:{//TODO
-			cout<<"W.I.P"<<endl;
-			break;
+		case 2:{
+			vector<int> indices;
+			cout<<"Como desea buscar\n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
+			cin>>op;
+			switch(op){
+				default:{
+					cout<<"ERROR, opcion no encontrada"<<endl;
+				break;
+				}
+				case 1:{
+					int auxDNI;
+					cout<<"Que DNI desea buscar: ";
+					cin>>auxDNI;
+					indices = buscarAlumno(auxDNI, "empty", 2);
+				break;
+				}
+				case 2:{
+					int auxGrupo;
+					cout<<"Que Grupo desea buscar: ";
+					cin>>auxGrupo;
+					indices = buscarAlumno(auxGrupo, "empty", 3);					
+				break;
+				}
+				case 3:{
+					string auxAp;
+					cout<<"Que Apellidos desea buscar: ";
+					getline(cin, auxAp);
+					indices = buscarAlumno(-1, auxAp, 1);
+				break;
+				}
+			};
+		break;
 		}
+	}
+	for(int i=0; i<indices.size(); i++){
+		if(v_aux[i].getLider() == true){
+			cout<<"\e[1m "/*Activa resaltado*/<<"--> Nombre: "<<v_Alumnos[v_aux[i]].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+		}
+		else{
+			cout<<"Nombre: "<<v_Alumnos[v_aux[i]].getNombre()<<endl;
+		}
+		cout<<"El alumno numero "<< i+1 <<" es:"
+		<<"\nApellidos: "<<v_Alumnos[v_aux[i]].getApellidos()
+		<<"\nDNI: "<<v_Alumnos[v_aux[i]].getDNI()
+		<<"\nFecha de nacimiento: "<<v_aux[i].getFecha_nacimiento()
+		<<"\nEmail: "<<v_Alumnos[v_aux[i]].getEmail()
+		<<"\nDireccion: "<<v_Alumnos[v_aux[i]].getDireccion()
+		<<"\nCurso mas alto en el que esta matriculado: "<<v_aux[i].getCurso()
+		<<"\nTelefono: "<<v_Alumnos[v_aux[i]].getTlf()
+		<<"\nGrupo: "<<v_Alumnos[v_aux[i]].getGrupo()<<"\n"<<endl;
 	}
 }
 
