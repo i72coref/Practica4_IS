@@ -1,8 +1,7 @@
 # Product BackLog.
 
-Según las historias de Usuario. Vamos a Asignar nuestra prioridad y el tiempo que conllevará cada una.
-
-Para realizar nuestro proyecto, vamos a trabajar un total de **31 HORAS**.
+Según las historias de Usuario y las demás funcionalidades del sistema adicionales. Vamos a Asignar nuestra prioridad y el tiempo que conllevará cada tarea para su correcta implementación.
+Para realizar nuestro proyecto correctamente, hemos estimato un tiempo total de **44 HORAS**.
 
 ### HU 1 - Uso_Credenciales:
 - Prioridad Usuario: **1**
@@ -70,3 +69,22 @@ _Tiempo Estimado de Desarrolo:_ **1:30h**
 
 _Tiempo Estimado de Desarrolo:_ **1:30h**
 
+### Creación de Clases:
+- Nuestra Prioridad: **1**
+_Tiempo Estimado de Desarrolo:_ **0:30h**
+
+### Creación del Main:
+- Nuestra Prioridad: **4**
+_Tiempo Estimado de Desarrolo:_ **3:30h**
+
+### Fichero para la creación de credenciales:
+- Nuestra Prioridad: **1**
+_Tiempo Estimado de Desarrolo:_ **2**
+
+### Fichero para la creación de alumnos:
+- Nuestra Prioridad: **3**
+_Tiempo Estimado de Desarrolo:_ **2:30**
+
+### Ficheros adicionales para comprobar funciones:
+- Nuestra Prioridad: **6**
+_Tiempo Estimado de Desarrolo:_ **4:30**
