@@ -452,7 +452,7 @@ void Agenda::modificarAlumno(){
 		system("clear");
 		cout<<"\nModidicado el alumno "<<v_Alumnos[j].getNombre()<<endl;
 		
-		cout<<"¿Desea modificar el nombre? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar el nombre? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			do{
@@ -468,7 +468,7 @@ void Agenda::modificarAlumno(){
 			auxS.clear(); //para que la cadena vuelva a estar vacia
 		}
 
-		cout<<"¿Desea modificar los apellidos? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar los apellidos? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			do{
@@ -484,7 +484,7 @@ void Agenda::modificarAlumno(){
 			auxS.clear();
 		}
 
-		cout<<"¿Desea modificar el DNI? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar el DNI? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			cout<<"DNI: ";
@@ -492,7 +492,7 @@ void Agenda::modificarAlumno(){
 			v_Alumnos[j].setDNI(aunI);
 		}
 
-		cout<<"¿Desea modificar la fecha de nacimiento? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar la fecha de nacimiento? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			do{
@@ -508,7 +508,7 @@ void Agenda::modificarAlumno(){
 			auxS.clear();
 		}
 
-		cout<<"¿Desea modificar el Email? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar el Email? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			do{
@@ -524,7 +524,7 @@ void Agenda::modificarAlumno(){
 			auxS.clear();
 		}
 
-		cout<<"¿Desea modificar la direccion? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar la direccion? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			do{
@@ -540,7 +540,7 @@ void Agenda::modificarAlumno(){
 			auxS.clear();
 		}
 
-		cout<<"¿Desea modificar el curso mas alto en el que esta matriculado? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar el curso mas alto en el que esta matriculado? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
 			cout<<"Curso mas alto en el que esta matriculado: ";
@@ -548,7 +548,7 @@ void Agenda::modificarAlumno(){
 			v_Alumnos[j].setCurso(aunI);
 		}
 
-		cout<<"¿Desea modificar el telefono? (0 = NO, 1 = SI)"<<endl;
+		cout<<"¿Desea modificar el telefono? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){	
 			cout<<"Telefono: ";
