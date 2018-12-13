@@ -14,7 +14,6 @@ class Agenda{
     Agenda(){}
 	inline void setAlumnos(vector<Alumno> aux){v_Alumnos = aux;}
 	inline vector<Alumno> getAlumnos(){return v_Alumnos;}
-	bool gestionLideres();
 	void borrarAlumno();
 	vector<int> buscarAlumno(int, string, int);// tipo de dato =1 apellido , 2 dni ó 3 grupo
 	void mostrarAlumnos();

@@ -288,16 +288,14 @@ void Agenda::introducirAlumnos(){
 			cin>>auxB;
 			if(auxB == 1){
 				int a =	lideres(aunI);
-
-					if(a == 0){
-						aux.setLider(auxB);
-						cout<<"Asigando como lider en el grupo "<<aunI<<endl;
-					}
-					else{cout<<"Ya hay un lider en ese grupo"<<endl;
-					}
+				if(a == 0){
+					aux.setLider(auxB);
+					cout<<"Asigando como lider en el grupo "<<aunI<<endl;
+				}
+				else{cout<<"Ya hay un lider en ese grupo"<<endl;
+					aux.setLider(false);
+				}
 			}
-
-
 		}
 		else{ //Si el grupo es -1 significa que no tiene grupo
 			aux.setGrupo(-1);
@@ -407,7 +405,7 @@ vector<Alumno> Agenda::ordenar(){
 }
 
 void Agenda::modificarAlumno(){
-	int op;
+/*	int op;
 	vector<int> indices;
 	cout<<"Como desea buscar el alumno a modificar \n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
 	cin>>op;
@@ -446,16 +444,16 @@ void Agenda::modificarAlumno(){
 		
 
 
-	}
+	}*/
 }
 
 int Agenda::lideres(int grupo){
-Alumno aux;
-vector<Alumno> x;
-x = v_Alumnos;
-int grupo2;
-bool lider;
-int contador = 0;
+	Alumno aux;
+	vector<Alumno> x;
+	x = v_Alumnos;
+	int grupo2;
+	bool lider;
+	int contador = 0;
 	for (int i = 0; i < x.size(); i++) {
 		aux = x[i];
 		grupo2 = aux.getGrupo();
