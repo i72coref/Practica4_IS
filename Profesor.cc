@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <cstdio>
+#include <cstdlib>
+
 
 using namespace std;
 
@@ -66,9 +69,12 @@ vector<Alumno> Profesor::cargar_backup(){
   int dnix, tlfx, grupox, cursox;
   bool liderx;
 
+
 while(variable == -1){
   cout<<"Introduce la ruta o dejalo vacío y se cargará la ruta predeterminada: ";
-  cin>>ruta;
+  setbuf(stdin , NULL);
+  getline(cin , ruta);
+
 
 
   if(ruta.empty()){
@@ -216,7 +222,11 @@ fichero.close();
 }
 
 
-void Profesor::hacer_backup(vector <Alumno> x){
+int Profesor::hacer_backup(vector <Alumno> x){
+
+  if(x.empty()){
+    return -1;
+  }
 
   Alumno aux;
   Agenda age;
@@ -270,7 +280,11 @@ file.close();
 
 }
 
-void Profesor::guardar_almacenamiento(vector <Alumno> x){
+int Profesor::guardar_almacenamiento(vector <Alumno> x){
+
+  if(x.empty()){
+    return -1;
+  }
 
   Alumno aux;
   Agenda age;

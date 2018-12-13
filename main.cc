@@ -93,7 +93,9 @@ cout<<"\n\t 1. Salir"<<endl;
 		cout<<"SALIENDO..."<<endl;
 		cout<<endl;
 		aux = age.getAlumnos();
-		prof.guardar_almacenamiento(aux);
+		if(prof.guardar_almacenamiento(aux) == -1){
+						cout<<"No hay alumnos en el sistema"<<endl;
+		}
  		exit(0);
 	 break;
 
@@ -111,7 +113,9 @@ cout<<"\n\t 1. Salir"<<endl;
 
 	 case 5:
 	 	aux = age.getAlumnos();
-		prof.hacer_backup(aux);
+		if(prof.hacer_backup(aux) == -1){
+			cout<<"No hay alumnos en el sistema"<<endl;
+		}
 
 	 break;
 
