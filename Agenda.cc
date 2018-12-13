@@ -11,7 +11,7 @@ void Agenda::borrarAlumno(){ //tipo de dato : 1 apellido, 2 dni
 	<<"\n\t2.Por DNI"
 	<<"\nOpcion: ";
 	cin>>op;
-	
+
 	switch(op){
 		case 1:{
 			string auxAp;
@@ -81,7 +81,7 @@ vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tip
 		for(int i=0; i < v_Alumnos.size(); i++){
 			if(v_Alumnos[i].getDNI() == entero){
 				indices.push_back(i);
-			}		
+			}
 		}
 	}
 
@@ -149,7 +149,7 @@ void Agenda::mostrarAlumnos(){
 					int auxGrupo;
 					cout<<"Que Grupo desea buscar: ";
 					cin>>auxGrupo;
-					indices = buscarAlumno(auxGrupo, "empty", 3);					
+					indices = buscarAlumno(auxGrupo, "empty", 3);
 				break;
 				}
 				case 3:{
@@ -202,7 +202,7 @@ void Agenda::introducirAlumnos(){
 	Alumno aux;
 	for(int i=0; i<nal; i++){
 		cout<<"Alumno numero "<< i+1<<endl;
-		
+
 		do{
 			cout<<"Nombre: ";
 			setbuf(stdin, NULL);
@@ -225,7 +225,7 @@ void Agenda::introducirAlumnos(){
 			}
 		}
 		while(auxS.empty());
-		auxS.clear();		
+		auxS.clear();
 
 		cout<<"DNI: ";
 		cin>>aunI;
@@ -238,7 +238,7 @@ void Agenda::introducirAlumnos(){
 			aux.setFecha_nacimiento(auxS);
 		}
 		while(auxS.empty());
-		auxS.clear();		
+		auxS.clear();
 
 		do{
 			cout<<"Email: ";
@@ -247,7 +247,7 @@ void Agenda::introducirAlumnos(){
 			aux.setEmail(auxS);
 		}
 		while(auxS.empty());
-		auxS.clear();		
+		auxS.clear();
 
 		do{
 			cout<<"Direccion: ";
@@ -256,7 +256,7 @@ void Agenda::introducirAlumnos(){
 			aux.setDireccion(auxS);
 		}
 		while(auxS.empty());
-		auxS.clear();		
+		auxS.clear();
 
 		cout<<"Curso mas alto en el que esta matriculado: ";
 		cin>>aunI;
@@ -274,7 +274,7 @@ void Agenda::introducirAlumnos(){
 			cout<<"Grupo: ";
 			cin>>aunI;
 			aux.setGrupo(aunI);
-			
+
 			cout<<"¿Lider? (0 = NO, 1 = SI), Opcion:";
 			cin>>auxB;
 			aux.setLider(auxB);
@@ -356,7 +356,7 @@ vector<Alumno> Agenda::ordenar(){
 					}
 				}
 			}
-			break;	
+			break;
 		}
 		case 5:{
 			for(int i=0; i<v_aux.size(); i++){
@@ -368,9 +368,9 @@ vector<Alumno> Agenda::ordenar(){
 					}
 				}
 			}
-			break;	
+			break;
 		}
-		case 6:{ //Ordeno alfabeticamente 
+		case 6:{ //Ordeno alfabeticamente
 			for(int i=0; i<v_aux.size(); i++){
 				for(int j=i; j<v_aux.size(); j++){
 					if(v_aux[i].getNombre() < v_aux[j].getNombre()){
@@ -384,4 +384,34 @@ vector<Alumno> Agenda::ordenar(){
 		}
 	}
 	return v_aux;
+}
+
+
+int Agenda::lideres(int grupo){
+
+Alumno aux;
+vector<Alumno> x;
+x = v_Alumnos;
+int grupo2;
+bool lider;
+int contador = 0;
+
+	for (int i = 0; i < x.size(); i++) {
+		aux = x[i];
+		grupo2 = aux.getGrupo();
+
+			if(grupo2 == grupo){
+				lider = aux.getLider();
+
+						if(lider == true){
+							contador ++;
+						}
+
+			}
+
+	}
+
+	if(contador == 0){return 0;}//no hay lider en ese grupo
+	else{return 1;}//hay un lider
+
 }
