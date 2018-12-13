@@ -54,70 +54,67 @@ int Profesor::login(){
 
 vector<Alumno> Profesor::cargar_backup(){
 
-  string ruta = "";
+  string ruta;
   fstream fichero;
   Alumno aux;
   Agenda ag;
   vector <Alumno> x;
   int variable = -1;
-char texto[200];
 
-  char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
+  char nombre[30], apellidos[30], fechanacimiento[30], email[30], direccion[30];
   string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
   int dnix, tlfx, grupox, cursox;
+  bool liderx;
 
 while(variable == -1){
-  cout<<"Introduce la ruta o escribe 'defecto' y se cargará la ruta predeterminada: ";
+  cout<<"Introduce la ruta o dejalo vacío y se cargará la ruta predeterminada: ";
   cin>>ruta;
 
 
   if(ruta.empty()){
   fichero.open( "backup.bin" , ios::in | ios::binary);
 
-
     if(!fichero){
-      cout<<"Error al abrir"<<endl;
+      cout<<"Error al abrir el back_up"<<endl;
       variable = -1;
     }
     else{
-      cout<<"Exito al abrir"<<endl;
+      cout<<"Exito al abrir el back_up"<<endl;
       variable = 0;
     }
   }//cierro if grande
+
+
 
   else{
     fichero.open( ruta.c_str() , ios::in | ios::binary);
 
       if(!fichero){
-        cout<<"Error al abrir"<<endl;
+        cout<<"Error al abrir el back_up"<<endl;
         variable = -1;
       }
       else{
-        cout<<"Exito al abrir"<<endl;
+        cout<<"Exito al abrir el back_up"<<endl;
         variable = 0;
       }
     }//cierro else grande
 }
 
+
+
 x = ag.getAlumnos();
 
-  while(fichero.read((char *)&dni, 30)){
-    fichero.read((char *)&curso, 30);
-    fichero.read((char *)&tlf, 30);
-    fichero.read((char *)&grupo, 30);
+  while(fichero.read((char *)&dnix, sizeof(int))){
+    fichero.read((char *)&cursox, sizeof(int));
+    fichero.read((char *)&tlfx, sizeof(int));
+    fichero.read((char *)&grupox, sizeof(int));
     fichero.read((char *)&nombre, 30);
     fichero.read((char *)&apellidos, 30);
     fichero.read((char *)&fechanacimiento, 30);
     fichero.read((char *)&email, 30);
     fichero.read((char *)&direccion, 30);
-    fichero.read((char *)&lider, 30);
+    fichero.read((char *)&liderx, sizeof(bool));
 
-    cursox = atoi(curso);
-    dnix = atoi(dni);
-    tlfx = atoi(tlf);
-    grupox = atoi(grupo);
-
-    bool liderx = lider;
 
     nombrex = nombre;
     apellidosx = apellidos;
@@ -156,9 +153,11 @@ vector <Alumno> Profesor::cargar_almacenamiento(){
 char texto[200];
 
 
-  char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
-  string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
-  int dnix, tlfx, grupox, cursox;
+char nombre[30], apellidos[30], fechanacimiento[30], email[30], direccion[30];
+string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
+int dnix, tlfx, grupox, cursox;
+bool liderx;
+
 
   if(ruta == "defecto"){
   fichero.open( "almacenamiento.bin" , ios::in | ios::binary);//ruta predeterminada
@@ -175,23 +174,19 @@ char texto[200];
 x = ag.getAlumnos();
 
 
-  while(fichero.read((char *)&dni, 30)){
-    fichero.read((char *)&curso, 30);
-    fichero.read((char *)&tlf, 30);
-    fichero.read((char *)&grupo, 30);
+  while(fichero.read((char *)&dnix, sizeof(int))){
+    fichero.read((char *)&cursox, sizeof(int));
+    fichero.read((char *)&tlfx, sizeof(int));
+    fichero.read((char *)&grupox, sizeof(int));
     fichero.read((char *)&nombre, 30);
     fichero.read((char *)&apellidos, 30);
     fichero.read((char *)&fechanacimiento, 30);
     fichero.read((char *)&email, 30);
     fichero.read((char *)&direccion, 30);
-    fichero.read((char *)&lider, 30);
+    fichero.read((char *)&liderx, sizeof(bool));
 
-    cursox = atoi(curso);
-    dnix = atoi(dni);
-    tlfx = atoi(tlf);
-    grupox = atoi(grupo);
 
-    bool liderx = lider;
+
 
     nombrex = nombre;
     apellidosx = apellidos;
