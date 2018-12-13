@@ -68,5 +68,5 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    
    **i72coref**: corrección documentación, main.cc, y funciones de Profesor.cc.
    
-   **i72caora**: correción guardar_almacenamiento y backup, cargar_almacenamiento y cargar_backup, creación y finalización de  gestion_lideres.
+   **i72caora**: correción guardar_almacenamiento y backup, cargar_almacenamiento y cargar_backup, creación y finalización de  gestion_lideres, y terminación de main.
    
