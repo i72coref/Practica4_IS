@@ -442,30 +442,22 @@ void Agenda::modificarAlumno(){
 }
 
 int Agenda::lideres(int grupo){
-
 Alumno aux;
 vector<Alumno> x;
 x = v_Alumnos;
 int grupo2;
 bool lider;
 int contador = 0;
-
 	for (int i = 0; i < x.size(); i++) {
 		aux = x[i];
 		grupo2 = aux.getGrupo();
-
-			if(grupo2 == grupo){
-				lider = aux.getLider();
-
-						if(lider == true){
-							contador ++;
-						}
-
+		if(grupo2 == grupo){
+			lider = aux.getLider();
+				if(lider == true){
+				contador ++;
 			}
-
+		}
 	}
-
 	if(contador == 0){return 0;}//no hay lider en ese grupo
 	else{return 1;}//hay un lider
-
 }
