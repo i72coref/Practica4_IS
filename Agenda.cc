@@ -296,6 +296,9 @@ void Agenda::introducirAlumnos(){
 					aux.setLider(false);
 				}
 			}
+			else{
+				aux.setLider(false);
+			}
 		}
 		else{ //Si el grupo es -1 significa que no tiene grupo
 			aux.setGrupo(-1);
@@ -320,7 +323,8 @@ vector<Alumno> Agenda::ordenar(){
 	<<"\n\t3. Por apellidos."
 	<<"\n\t4. Por curso mas alto ascendente."
 	<<"\n\t5. Por curso mas alto descendente."
-	<<"\n\t6. Por nommbre."<<endl;
+	<<"\n\t6. Por nommbre."
+	<<"\nOpcion: "<<endl;
 	cin>>op;
 
 	switch(op){
@@ -405,7 +409,7 @@ vector<Alumno> Agenda::ordenar(){
 }
 
 void Agenda::modificarAlumno(){
-/*	int op;
+	int op;
 	vector<int> indices;
 	cout<<"Como desea buscar el alumno a modificar \n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
 	cin>>op;
@@ -438,13 +442,145 @@ void Agenda::modificarAlumno(){
 		}
 	}
 
+	int aunI;
+	string auxS;
+	bool auxB; 
+	int mod; //Variable que indica si se modifica algo
+
 	for(int i=0; i<indices.size(); i++){
 		int j = indices[i];
-		int mod;
+		system("clear");
+		cout<<"\nModidicado el alumno "<<v_Alumnos[j].getNombre()<<endl;
 		
+		cout<<"¿Desea modificar el nombre? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			do{
+				cout<<"Nombre: ";
+				setbuf(stdin, NULL);
+				getline(cin, auxS);
+				if(auxS.empty()){
+					cout<<"El nombre es obligatorio"<<endl;
+				}
+				v_Alumnos[j].setNombre(auxS);
+			}
+			while(auxS.empty());
+			auxS.clear(); //para que la cadena vuelva a estar vacia
+		}
 
+		cout<<"¿Desea modificar los apellidos? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			do{
+				cout<<"Apellidos: ";
+				setbuf(stdin, NULL);
+				getline(cin, auxS);
+				v_Alumnos[j].setApellidos(auxS);
+				if(auxS.empty()){
+					cout<<"Los apellidos son obligatorios"<<endl;
+				}
+			}
+			while(auxS.empty());
+			auxS.clear();
+		}
 
-	}*/
+		cout<<"¿Desea modificar el DNI? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			cout<<"DNI: ";
+			cin>>aunI;
+			v_Alumnos[j].setDNI(aunI);
+		}
+
+		cout<<"¿Desea modificar la fecha de nacimiento? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			do{
+				cout<<"Fecha de nacimiento: ";
+				setbuf(stdin, NULL);
+				getline(cin, auxS);
+				v_Alumnos[j].setFecha_nacimiento(auxS);
+				if(auxS.empty()){
+					cout<<"La Fecha de nacimiento es obligatoria"<<endl;
+				}
+			}
+			while(auxS.empty());
+			auxS.clear();
+		}
+
+		cout<<"¿Desea modificar el Email? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			do{
+				cout<<"Email: ";
+				setbuf(stdin, NULL);
+				getline(cin, auxS);
+				v_Alumnos[j].setEmail(auxS);
+				if(auxS.empty()){
+					cout<<"El Email es obligatorio"<<endl;
+				}
+			}
+			while(auxS.empty());
+			auxS.clear();
+		}
+
+		cout<<"¿Desea modificar la direccion? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			do{
+				cout<<"Direccion: ";
+				setbuf(stdin, NULL);
+				getline(cin, auxS);
+				v_Alumnos[j].setDireccion(auxS);
+				if(auxS.empty()){
+					cout<<"La dirección es obligatoria"<<endl;
+				}
+			}
+			while(auxS.empty());
+			auxS.clear();
+		}
+
+		cout<<"¿Desea modificar el curso mas alto en el que esta matriculado? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){
+			cout<<"Curso mas alto en el que esta matriculado: ";
+			cin>>aunI;
+			v_Alumnos[j].setCurso(aunI);
+		}
+
+		cout<<"¿Desea modificar el telefono? (0 = NO, 1 = SI)"<<endl;
+		cin>>mod;
+		if(mod == 1){	
+			cout<<"Telefono: ";
+			cin>>aunI;
+			v_Alumnos[j].setTlf(aunI);
+		}
+
+//		Variables opcionales
+		cout<<"¿Desea modificar el grupo? (1 = SI, 0 = NO): ";
+		cin>>mod;
+		if(mod == 1){
+			cout<<"Grupo: ";
+			cin>>aunI;
+			v_Alumnos[j].setGrupo(aunI);
+
+			cout<<"¿Lider? (0 = NO, 1 = SI), Opcion:";
+			cin>>auxB;
+			if(auxB == 1){
+				int a =	lideres(aunI);
+				if(a == 0){
+					v_Alumnos[j].setLider(auxB);
+					cout<<"Asigando como lider en el grupo "<<aunI<<endl;
+				}
+				else{cout<<"Ya hay un lider en ese grupo"<<endl;
+					v_Alumnos[j].setLider(false);
+				}
+			}
+			else{
+				v_Alumnos[j].setLider(false);
+			}
+		}
+	}
 }
 
 int Agenda::lideres(int grupo){
