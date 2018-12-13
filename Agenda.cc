@@ -7,10 +7,11 @@ void Agenda::borrarAlumno(){
 	vector<int> indices;
 	int op;
 	cout<<"Que desea borrar: "
-	<<"\n\t1.Por apellidos"
-	<<"\n\t2.Por DNI"
-	<<"\nOpcion: ";
+	<<"\n\t\e[1;32m1. \e[0mPor apellidos"
+	<<"\n\t\e[1;32m2. \e[0mPor DNI"
+	<<"\n\tOpcion: ";
 	cin>>op;
+	cout<<"\n";
 
 	switch(op){
 		case 1:{
@@ -90,11 +91,12 @@ void Agenda::mostrarAlumnos(){
 	vector<Alumno> v_aux;
 	vector<int> indices;
 	int op = 1;
-	cout<<"Elija una opcion:\n"
-	<<"\t1 Mostrar todos los alumnos.\n"
-	<<"\t2 Mostrar uno o varios alumnos."
-	<<"\nOpcion: ";
+	cout<<"\nElija una opcion:\n"
+	<<"\t  \e[1;31m1.\e[0m Mostrar todos los alumnos.\n"
+	<<"\t  \e[1;31m2.\e[0m Mostrar uno o varios alumnos.\n"
+	<<"\tOpcion: ";
 	cin>>op;
+	cout<<"\n";
 
 	switch(op){
 		default:{
@@ -107,7 +109,7 @@ void Agenda::mostrarAlumnos(){
 				//Creo un vector auxiliar, para al ordenar no modificar el vector orginal
 
 				if(v_aux[i].getLider() == true){
-					cout<<"\e[1m "/*Activa resaltado*/<<"Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+					cout<<"\e[1;33m"/*Activa resaltado*/<<"Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 				}
 				else{
 					cout<<"Nombre: "<<v_aux[i].getNombre()<<endl;
@@ -131,7 +133,7 @@ void Agenda::mostrarAlumnos(){
 		}
 		case 2:{
 			int op2;
-			cout<<"Como desea buscar\n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
+			cout<<"\tComo desea buscar\n\t  1.Por DNI\n\t  2.Por Grupo\n\t  3.Por apellidos\n\tOpcion:";
 			cin>>op2;
 			switch(op2){
 				default:{
@@ -140,14 +142,14 @@ void Agenda::mostrarAlumnos(){
 				}
 				case 1:{
 					int auxDNI;
-					cout<<"Que DNI desea buscar: ";
+					cout<<"\nQue DNI desea buscar: ";
 					cin>>auxDNI;
 					indices = buscarAlumno(auxDNI, "empty", 2);
 				break;
 				}
 				case 2:{
 					int auxGrupo;
-					cout<<"Que Grupo desea buscar: ";
+					cout<<"\nQue Grupo desea buscar: ";
 					cin>>auxGrupo;
 					indices = buscarAlumno(auxGrupo, "empty", 3);
 				break;
@@ -167,7 +169,7 @@ void Agenda::mostrarAlumnos(){
 	for(int i=0; i<indices.size(); i++){
 		int j = indices[i];
 		if(v_Alumnos[j].getLider() == true){
-			cout<<"\e[1m "/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[j].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+			cout<<"\e[1;33m"/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[j].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 		}
 		else{
 			cout<<"Nombre: "<<v_Alumnos[j].getNombre()<<endl;
@@ -317,15 +319,16 @@ vector<Alumno> Agenda::ordenar(){
 	v_aux = v_Alumnos;
 	Alumno a_aux;
 
-	cout<<"Como desea ordenar el vector."
-	<<"\n\t1. Por DNI ascendente."
-	<<"\n\t2. Por DNI descendente."
-	<<"\n\t3. Por apellidos."
-	<<"\n\t4. Por curso mas alto ascendente."
-	<<"\n\t5. Por curso mas alto descendente."
-	<<"\n\t6. Por nommbre."
-	<<"\nOpcion: "<<endl;
+	cout<<"\tComo desea ordenar el vector."
+	<<"\n\t\e[1;32m  1.\e[0m Por DNI ascendente."
+	<<"\n\t\e[1;32m  2.\e[0m Por DNI descendente."
+	<<"\n\t\e[1;32m  3.\e[0m Por apellidos."
+	<<"\n\t\e[1;32m  4.\e[0m Por curso mas alto ascendente."
+	<<"\n\t\e[1;32m  5.\e[0m Por curso mas alto descendente."
+	<<"\n\t\e[1;32m  6.\e[0m Por nombre."
+	<<"\n\tOpcion: ";
 	cin>>op;
+	cout<<"\n";
 
 	switch(op){
 		default:{
@@ -411,8 +414,10 @@ vector<Alumno> Agenda::ordenar(){
 void Agenda::modificarAlumno(){
 	int op;
 	vector<int> indices;
-	cout<<"Como desea buscar el alumno a modificar \n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
+	cout<<"Como desea buscar el alumno a modificar \n\t\e[1;32m 1.\e[0mPor DNI\n\t\e[1;32m 2.\e[0mPor Grupo\n\t\e[1;32m 3.\e[0mPor apellidos\n\tOpcion: ";
 	cin>>op;
+	cout<<"\n";
+
 	switch(op){
 		default:{
 			cout<<"ERROR, opcion no encontrada"<<endl;
@@ -429,7 +434,7 @@ void Agenda::modificarAlumno(){
 			int auxGrupo;
 			cout<<"Que Grupo desea buscar: ";
 			cin>>auxGrupo;
-			indices = buscarAlumno(auxGrupo, "empty", 3);					
+			indices = buscarAlumno(auxGrupo, "empty", 3);
 		break;
 		}
 		case 3:{
@@ -444,14 +449,14 @@ void Agenda::modificarAlumno(){
 
 	int aunI;
 	string auxS;
-	bool auxB; 
+	bool auxB;
 	int mod; //Variable que indica si se modifica algo
 
 	for(int i=0; i<indices.size(); i++){
 		int j = indices[i];
 		system("clear");
 		cout<<"\nModidicado el alumno "<<v_Alumnos[j].getNombre()<<endl;
-		
+
 		cout<<"¿Desea modificar el nombre? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
@@ -550,7 +555,7 @@ void Agenda::modificarAlumno(){
 
 		cout<<"¿Desea modificar el telefono? (0 = NO, 1 = SI): ";
 		cin>>mod;
-		if(mod == 1){	
+		if(mod == 1){
 			cout<<"Telefono: ";
 			cin>>aunI;
 			v_Alumnos[j].setTlf(aunI);

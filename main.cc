@@ -25,13 +25,13 @@ int main(){
 
 void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 	int opcion=0, intentos=5;
-	cout<<">.----------------------------------------------------------------------.<"<<endl;
-	cout<<"\tHOLA, BIEN VENIDO AL SISTEMA."<<endl;
+	cout<<"\n\e[1;33m >.----------------------------------------------------------------------.<\e[0m"<<endl;
+	cout<<"\t\e[1;33m HOLA, BIENVENIDO AL SISTEMA.\e[0m"<<endl;
 	cout<<"\t"<<endl;
-	cout<<"\t 1. Introduce tus credenciales para continuar."<<endl;
-	cout<<"\n\t 2. Salir."<<endl;
-	cout<<">.----------------------------------------------------------------------.<"<<endl;
-	cout<<"opcion: ";
+	cout<<"\t \e[1;33m 1.\e[0m Introduce tus credenciales para continuar."<<endl;
+	cout<<"\t \e[1;33m 2.\e[0m Salir."<<endl;
+	cout<<"\n\e[1;33m >.----------------------------------------------------------------------.<\e[0m"<<endl;
+	cout<<"\nOpción: ";
 	cin>>opcion;
 
 	/*	if(opcion>2 || opcion<1){
@@ -42,12 +42,11 @@ void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 			case 1:
 				if (prof.login() == 0){
 					intentos=0;
-					cout<<"EXITO!"<<endl;
 					menu(prof, age, aux);
 				}
 				else{
 					intentos--;
-					cout<<"Vuelve a intentarlo quedan: "<<intentos<<" intentos."<<endl;
+					cout<<"Vuelve a intentarlo quedan: "<<intentos<<" intentos.\n"<<endl;
 					if(intentos==0){
 						cout<<"Has acabado tus intentos..."<<endl;
 						exit(-1);
@@ -66,25 +65,27 @@ void menu(Profesor prof, Agenda age, vector <Alumno> aux){
 
 int opcion=0;
 	age.setAlumnos(prof.cargar_almacenamiento());
-	cout<<"Los datos se han cargado correctamente"<<endl;
+
 
 while(opcion>=0){
- cout<<">.----------------------------------------------------------------------.<"<<endl;
- cout<<"\tEstas logueado como: "<< prof.getRol() <<"."<<endl;
+ cout<<"\n\e[1;32m >.----------------------------------------------------------------------.<\e[0m"<<endl;
+ cout<<"\tEstas logueado como: \e[1;32m"<< prof.getRol() <<"\e[0m"<<endl;
  cout<<"\t"<<endl;
-cout<<"\t1. Salir"<<endl;
- cout<<"\t2. Introducir alumnos."<<endl;
- cout<<"\t3. Borrar Alumno."<<endl;
- cout<<"\t4. Mostrar Alumnos."<<endl;
- cout<<"\t5. Modificar Alumno."<<endl;
+cout<<"\t\e[1;32m 1.\e[0m Salir"<<endl;
+ cout<<"\t\e[1;32m 2.\e[0m Introducir alumnos."<<endl;
+ cout<<"\t\e[1;32m 3.\e[0m Borrar Alumno."<<endl;
+ cout<<"\t\e[1;32m 4.\e[0m Mostrar Alumnos."<<endl;
+ cout<<"\t\e[1;32m 5.\e[0m Modificar Alumno."<<endl;
 	if(prof.getRol()=="coordinador"){
-	 cout<<"\t6. Hacer Backup."<<endl;
-	 cout<<"\t7. Cargar Backup."<<endl;
+	 cout<<"\t\e[1;32m 6.\e[0m Hacer Backup."<<endl;
+	 cout<<"\t\e[1;32m 7.\e[0m Cargar Backup."<<endl;
  }
+ cout<<"\n\e[1;32m >.----------------------------------------------------------------------.<\e[0m"<<endl;
 
- cout<<"\n>.----------------------------------------------------------------------.<"<<endl;
- cout<<"opcion: ";
+ cout<<"\nOpcion: ";
  cin>>opcion;
+
+
  	switch(opcion){
 
 	 case 1:
@@ -92,12 +93,16 @@ cout<<"\t1. Salir"<<endl;
 	/*Al elegir la opcion del salir del programa,
 	vamos a guardar todos los datos trabajados*/
 
-		cout<<"SALIENDO..."<<endl;
+		cout<<"SALIENDO...";
 		cout<<endl;
 		aux = age.getAlumnos();
 		if(prof.guardar_almacenamiento(aux) == -1){
-						cout<<"No hay alumnos en el sistema"<<endl;
+						cout<<"No se creó 'almacenamiento.bin' porque no hay alumnos en el sistema\n"<<endl;
 		}
+		else{
+			cout<<"Se creó 'almacenamiento.bin' con los alumnos cargados\n"<<endl;
+		}
+
  		exit(0);
 	 break;
 
@@ -118,17 +123,27 @@ cout<<"\t1. Salir"<<endl;
 	 break;
 
 	 case 6:
+if(prof.getRol() == "coordinador"){
+
 	 	aux = age.getAlumnos();
 		if(prof.hacer_backup(aux) == -1){
 			cout<<"No hay alumnos en el sistema"<<endl;
 		}
-
+}
+else{
+	cout<<"Debes ser coordinador"<<endl;
+}
 	 break;
 
 	 case 7:
+if(prof.getRol() == "coordinador"){
 	 age.setAlumnos(prof.cargar_backup());
 	 cout<<"Los datos se han cargado correctamente!! "<<endl;
 	 break;
+}
+else{
+		cout<<"Debes ser coordinador"<<endl;
+}
 
   }
  }

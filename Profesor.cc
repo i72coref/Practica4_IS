@@ -25,6 +25,7 @@ int Profesor::login(){
   cin>>usuario;
   cout<<"Introduzca credenciales: contraseña: ";
   cin>>contra;
+  cout<<"\n";
   string rol;
 
   fichero.open("credenciales.bin" , ios::in | ios::binary );//queda poner la ruta
@@ -71,7 +72,7 @@ vector<Alumno> Profesor::cargar_backup(){
 
 
 while(variable == -1){
-  cout<<"Introduce la ruta o dejalo vacío y se cargará la ruta predeterminada: ";
+  cout<<"Introduce la ruta o deja esta campo vacío y se cargará la ruta predeterminada: ";
   setbuf(stdin , NULL);
   getline(cin , ruta);
 
@@ -144,7 +145,7 @@ x = ag.getAlumnos();
   }
 
   fichero.close();
-cout<<"Fichero cargado con exito"<<endl;
+//cout<<"Fichero cargado con exito"<<endl;
 return x;
 }
 
@@ -170,10 +171,10 @@ bool liderx;
 
 
     if(!fichero){
-      cout<<"Error al abrir el fichero"<<endl;
+      cout<<"El fichero 'almacenamiento.bin' no existe en la carpeta del programa "<<endl;
     }
     else{
-      cout<<"Exito al abrir"<<endl;
+    //  cout<<"Exito al abrir"<<endl;
     }
   }//cierro if grande
 
@@ -217,7 +218,7 @@ x = ag.getAlumnos();
 
 fichero.close();
 
-  cout<<"Fichero almacenamiento cargado correctamente"<<endl;
+  cout<<"Fichero 'almacenamiento.bin' cargado correctamente desde la carpeta del programa"<<endl;
   return x;
 }
 
@@ -248,7 +249,7 @@ int Profesor::hacer_backup(vector <Alumno> x){
   fstream file;
 file.open(ruta.c_str(), ios::out| ios::binary);
 
-cout <<"Exito al CREAR!!"<<endl;
+//cout <<"Exito al CREAR!!"<<endl;
 
 
     for(int i=0; i<x.size(); i++){
