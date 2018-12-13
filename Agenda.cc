@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <cstdlib>
 
-void Agenda::borrarAlumno(){ //tipo de dato : 1 apellido, 2 dni
+void Agenda::borrarAlumno(){
 	vector<int> indices;
 	int op;
 	cout<<"Que desea borrar: "
@@ -125,6 +125,9 @@ void Agenda::mostrarAlumnos(){
 				<<"\nTelefono: "<<v_aux[i].getTlf()<<endl;
 				if(v_aux[i].getGrupo() != -1){
 					cout<<"Grupo: "<<v_aux[i].getGrupo()<<"\n"<<endl;
+				}
+				else{
+					cout<<endl;
 				}
 			}
 			break;
@@ -337,7 +340,7 @@ vector<Alumno> Agenda::ordenar(){
 		case 3:{//Ordena alfabeticamente los apellidos
 			for(int i=0; i<v_aux.size(); i++){
 				for(int j=i; j<v_aux.size(); j++){
-					if(v_aux[i].getApellidos() < v_aux[j].getApellidos()){
+					if((v_aux[i].getApellidos()).at(0) > (v_aux[j].getApellidos()).at(0)){
 						a_aux = v_aux[i];
 						v_aux[i] = v_aux[j];
 						v_aux[j] = a_aux;
@@ -373,7 +376,7 @@ vector<Alumno> Agenda::ordenar(){
 		case 6:{ //Ordeno alfabeticamente
 			for(int i=0; i<v_aux.size(); i++){
 				for(int j=i; j<v_aux.size(); j++){
-					if(v_aux[i].getNombre() < v_aux[j].getNombre()){
+					if((v_aux[i].getNombre()).at(0) > (v_aux[j].getNombre()).at(0)){
 						a_aux = v_aux[i];
 						v_aux[i] = v_aux[j];
 						v_aux[j] = a_aux;

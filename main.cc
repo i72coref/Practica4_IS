@@ -9,21 +9,21 @@
 using namespace std;
 
 //Prototipos de funciones
-void firstmenu(Profesor prof, Agenda age);
-void menu(Profesor prof, Agenda age);
+void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux);
+void menu(Profesor prof, Agenda age, vector <Alumno> aux);
 
 
 int main(){
 	Agenda age;
 	Profesor prof;
-
+	vector <Alumno> aux;
 //	Menu inicial, al abrir el programa.
-	firstmenu(prof, age);
+	firstmenu(prof, age, aux);
 
 	return 0;
 }
 
-void firstmenu(Profesor prof, Agenda age){
+void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 	int opcion=0, intentos=5;
 	cout<<">.----------------------------------------------------------------------.<"<<endl;
 	cout<<"\tHOLA, BIEN VENIDO AL SISTEMA."<<endl;
@@ -43,7 +43,7 @@ void firstmenu(Profesor prof, Agenda age){
 				if (prof.login() == 0){
 					intentos=0;
 					cout<<"EXITO!"<<endl;
-					menu(prof, age);
+					menu(prof, age, aux);
 				}
 				else{
 					intentos--;
@@ -62,9 +62,9 @@ void firstmenu(Profesor prof, Agenda age){
 	}
 }
 
-void menu(Profesor prof, Agenda age){
+void menu(Profesor prof, Agenda age, vector <Alumno> aux){
 
-int opcion;
+int opcion=0;
 	age.setAlumnos(prof.cargar_almacenamiento());
 	cout<<"Los datos se han cargado correctamente"<<endl;
 
@@ -72,51 +72,52 @@ while(opcion>=0){
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"\tEstas logueado como: "<< prof.getRol() <<"."<<endl;
  cout<<"\t"<<endl;
- cout<<"\t 1. Introducir alumnos."<<endl;
- cout<<"\n\t 2. Borrar Alumno."<<endl;
- cout<<"\n\t 3. Mostrar Alumnos."<<endl;
+cout<<"\n\t 1. Salir"<<endl;
+ cout<<"\t 2. Introducir alumnos."<<endl;
+ cout<<"\n\t 3. Borrar Alumno."<<endl;
+ cout<<"\n\t 4. Mostrar Alumnos."<<endl;
 	if(prof.getRol()=="coordinador"){
-	 cout<<"\n\t4. Hacer Backup."
-	 <<"\n\t5. Cargar Backup."<<endl;
+	 cout<<"\n\t5. Hacer Backup."
+	 <<"\n\t6. Cargar Backup."<<endl;
  }
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"opcion: ";
  cin>>opcion;
  	switch(opcion){
 
-	 case 0:
+	 case 1:
 
 	/*Al elegir la opcion del salir del programa,
 	vamos a guardar todos los datos trabajados*/
 
 		cout<<"SALIENDO..."<<endl;
 		cout<<endl;
-		if(prof.guardar_almacenamiento()==0){
-			cout<<"Datos guardados correctamente."<<endl;}
-		else{ cout<<"Error al guardar los datos."<<endl;}
+		aux = age.getAlumnos();
+		prof.guardar_almacenamiento(aux);
  		exit(0);
 	 break;
 
-	 case 1:
+	 case 2:
 	 	age.introducirAlumnos();
 	 break;
 
-	 case 2:
-	 //	age.BorrarAlumno();
-	 break;
-
 	 case 3:
-	 	age.mostrarAlumnos();
+	age.borrarAlumno();
 	 break;
 
 	 case 4:
+	 	age.mostrarAlumnos();
+	 break;
 
+	 case 5:
+	 	aux = age.getAlumnos();
+		prof.hacer_backup(aux);
 
 	 break;
 
-
-	 case 5:
-
+	 case 6:
+	 age.setAlumnos(prof.cargar_backup());
+	 cout<<"Los datos se han cargado correctamente!! "<<endl;
 	 break;
 
   }
