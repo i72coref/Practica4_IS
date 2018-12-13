@@ -10,18 +10,42 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
 
 ### Sprint 1: 28 noviembre - 6 diciembre 2018.
  - **Día 28 noviembre.**
-  > **i7lopca**: creación de la Clase: Profesor.
-  > **i72coref**: creación de la Clase: Agenda.
-  > **i72caora**: creación de la Clase: Alumno.
-
+   **i7lopca**: correciones Product Backlog y Sprint Backlog. 
+   **i72coref**: creación: **repositorio** y documentación (Product Backlog, Burndown Chart y Sprint Backlog).
+   **i72caora**: añadir información al repositorio de interés.
+   
+  - **Día 1 diciembre.**
+   **i7lopca**: creación clase Alumno.h, comienzo función Buscar_Alumno, Introducir_Alumno, Mostrar_Alumno y  función ordenar.
+   **i72coref**: modificación de la documentación anterior (Product BackLog, Sprint Backlog y Burndown Chart).
+   **i72caora**: creación Clase Agenda.h y fichero Alumno.cc.
+   
+  - **Día 5 diciembre.**
+   **i7lopca**: algunos cambios y correcciones en ficheros creados anteriormente.
+   **i72coref**: programa para la creación de credenciales y su comprobación. 
+   **i72caora**: creación Clase Profesor.h y fichero Profesor.cc.
+   
+   - **Día 9 diciembre.**
+   **i7lopca**: creación grafico Burndown Chart.
+   **i72coref**: documentación Burndown Chart.
+   **i72caora**: creación función login.
+   
+   - **Día 11 diciembre.**
+   **i7lopca**: arreglos en la función introducir_alumno y login.
+   **i72coref**: edicción main.cc _(tuvimos problemas con git)_.
+   **i72caora**: función para crear ficheros binarios de alumnos.
+   
 ### Sprint 2: 7 - 10 diciembre 2018.
-
- - **i7lopca**: comienzo de la función Busqueda_Datos.
- - **i72coref**: comienzo de la función Busqueda_Datos.
- - **i72caora**: comienzco de la función Uso_Credenciales.
+ .
  
 ### Sprint 3: 11 - 15 diciembre 2018.
 
- - **i7lopca**: comienzo de la función Introducir_Datos.
- - **i72coref**: comienzo de la función Mostrar_Alumno.
- - **i72caora**: comienzo de la función Admin_Lideres.
+   - **Día 12 diciembre.**
+   **i7lopca**: arreglos en introducir_alumno, trabajo en buscar_alumno, mostrar_alumno, borrar_alumno.
+   **i72coref**: arreglos main.cc, comienzo hacer_backup, guardar_almacenamiento.
+   **i72caora**: trabajando en cargar_almacenamiento, arreglos en profesor.cc y profesor.h.
+   
+   - **Día 13 diciembre.**
+   **i7lopca**: 
+   **i72coref**: 
+   **i72caora**: 
+   
