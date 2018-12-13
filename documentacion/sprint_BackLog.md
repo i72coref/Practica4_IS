@@ -9,8 +9,8 @@ Nuestro Equipo está formado por:
 A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto, cada programador ha trabajado:
 
 ### Sprint 1: 28 noviembre - 6 diciembre 2018.
- - **Día 28 noviembre**
-  -**i7lopca**: creación de la Clase: Profesor.
+ - **Día 28 noviembre.**
+  -  **i7lopca**: creación de la Clase: Profesor.
   - **i72coref**: creación de la Clase: Agenda.
   - **i72caora**: creación de la Clase: Alumno.
 
