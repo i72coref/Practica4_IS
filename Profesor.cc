@@ -59,24 +59,19 @@ vector<Alumno> Profesor::cargar_backup(){
   Alumno aux;
   Agenda ag;
   vector <Alumno> x;
-char texto[200];
   int variable = -1;
+char texto[200];
 
   char nombre[30], apellidos[30], dni[30], tlf[30], grupo[30], fechanacimiento[30], email[30], lider[30], direccion[30], curso[30];
   string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
   int dnix, tlfx, grupox, cursox;
-
-//  if(rol_ != "coordinador"){
-//  cout<<"Debes ser coordinador"<<endl;
-//  return -1;}
-
 
 while(variable == -1){
   cout<<"Introduce la ruta o escribe 'defecto' y se cargará la ruta predeterminada: ";
   cin>>ruta;
 
 
-  if(ruta == "defecto"){
+  if(ruta.empty()){
   fichero.open( "backup.bin" , ios::in | ios::binary);
 
 
@@ -151,7 +146,7 @@ return x;
 }
 
 
-  vector<Alumno> Profesor::cargar_almacenamiento(){
+vector <Alumno> Profesor::cargar_almacenamiento(){
 
   Agenda ag;
   string ruta = "defecto";
@@ -165,14 +160,8 @@ char texto[200];
   string nombrex, apellidosx, fechanacimientox, emailx, direccionx;
   int dnix, tlfx, grupox, cursox;
 
-//  if(rol_ != "coordinador"){
-//  cout<<"Debes ser coordinador"<<endl;
-//  return -1;}
-
-
-
   if(ruta == "defecto"){
-  fichero.open( "backup.bin" , ios::in | ios::binary);//ruta predeterminada
+  fichero.open( "almacenamiento.bin" , ios::in | ios::binary);//ruta predeterminada
 
 
     if(!fichero){
@@ -232,12 +221,10 @@ fichero.close();
 }
 
 
-int Profesor::hacer_backup(){
-  vector <Alumno> x;
+void Profesor::hacer_backup(vector <Alumno> x){
+
   Alumno aux;
   Agenda age;
-
-  x = age.getAlumnos();
 
     int xtam = x.size();
 
@@ -248,22 +235,15 @@ int Profesor::hacer_backup(){
   int dni, tlf, grupo, curso;
   bool serlider;
 
-  if(rol_ != "coordinador"){
-  cout<<"Debes ser coordinador"<<endl;
-  return -1;}
   string ruta;
 
   cout<<"Introduce la Ruta: ";
   cin>>ruta;
 
   fstream file;
-file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
+file.open(ruta.c_str(), ios::out| ios::binary);
 
-  if(!file){
-  cout<<"Error al abrir"<<endl;
-  return -1;}
-
-  else{cout <<"Exito al CREAR!!"<<endl;}
+cout <<"Exito al CREAR!!"<<endl;
 
 
     for(int i=0; i<x.size(); i++){
@@ -292,16 +272,13 @@ file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
       file.write((char *) &serlider, sizeof(bool));
      }
 file.close();
-return 0;
+
 }
 
-int Profesor::guardar_almacenamiento(){
+void Profesor::guardar_almacenamiento(vector <Alumno> x){
 
-  vector <Alumno> x;
   Alumno aux;
   Agenda age;
-
-  x = age.getAlumnos();
 
     int xtam = x.size();
 
@@ -312,19 +289,8 @@ int Profesor::guardar_almacenamiento(){
   int dni, tlf, grupo, curso;
   bool serlider;
 
-  string ruta;
-
-  cout<<"Introduce la Ruta: ";
-  cin>>ruta;
-
   fstream file;
-file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
-
-  if(!file){
-    cout<<"Error al abrir"<<endl;
-    return -1;}
-
-    else{cout <<"Exito al CREAR!!"<<endl;}
+  file.open("almacenamiento.bin", ios::out| ios::binary);
 
     for(int i=0; i<x.size(); i++){
 
@@ -351,8 +317,6 @@ file.open(ruta.c_str(), ios::out| ios::trunc | ios::binary);
       file.write((char *) &direccion, 30);
       file.write((char *) &serlider, sizeof(bool));
      }
-file.close();
-return 0;
-
+     file.close();
 
 }
