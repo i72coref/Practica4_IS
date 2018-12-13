@@ -64,7 +64,7 @@ void firstmenu(Profesor prof, Agenda age){
 
 void menu(Profesor prof, Agenda age){
 
-int opcion;
+int opcion=0;
 	age.setAlumnos(prof.cargar_almacenamiento());
 	cout<<"Los datos se han cargado correctamente"<<endl;
 
@@ -72,19 +72,20 @@ while(opcion>=0){
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"\tEstas logueado como: "<< prof.getRol() <<"."<<endl;
  cout<<"\t"<<endl;
- cout<<"\t 1. Introducir alumnos."<<endl;
- cout<<"\n\t 2. Borrar Alumno."<<endl;
- cout<<"\n\t 3. Mostrar Alumnos."<<endl;
+cout<<"\t 1. Salir"<<endl;
+ cout<<"\t 2. Introducir alumnos."<<endl;
+ cout<<"\n\t 3. Borrar Alumno."<<endl;
+ cout<<"\n\t 4. Mostrar Alumnos."<<endl;
 	if(prof.getRol()=="coordinador"){
-	 cout<<"\n\t4. Hacer Backup."
-	 <<"\n\t5. Cargar Backup."<<endl;
+	 cout<<"\n\t5. Hacer Backup."
+	 <<"\n\t6. Cargar Backup."<<endl;
  }
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"opcion: ";
  cin>>opcion;
  	switch(opcion){
 
-	 case 0:
+	 case 1:
 
 	/*Al elegir la opcion del salir del programa,
 	vamos a guardar todos los datos trabajados*/
@@ -97,25 +98,25 @@ while(opcion>=0){
  		exit(0);
 	 break;
 
-	 case 1:
+	 case 2:
 	 	age.introducirAlumnos();
 	 break;
 
-	 case 2:
-	 //	age.BorrarAlumno();
-	 break;
-
 	 case 3:
-	 	age.mostrarAlumnos();
+	 //age.BorrarAlumno();
 	 break;
 
 	 case 4:
+	 	age.mostrarAlumnos();
+	 break;
+
+	 case 5:
 
 
 	 break;
 
 
-	 case 5:
+	 case 6:
 
 	 break;
 
