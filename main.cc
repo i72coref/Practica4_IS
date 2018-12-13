@@ -72,15 +72,17 @@ while(opcion>=0){
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"\tEstas logueado como: "<< prof.getRol() <<"."<<endl;
  cout<<"\t"<<endl;
-cout<<"\n\t 1. Salir"<<endl;
- cout<<"\t 2. Introducir alumnos."<<endl;
- cout<<"\n\t 3. Borrar Alumno."<<endl;
- cout<<"\n\t 4. Mostrar Alumnos."<<endl;
+cout<<"\t1. Salir"<<endl;
+ cout<<"\t2. Introducir alumnos."<<endl;
+ cout<<"\t3. Borrar Alumno."<<endl;
+ cout<<"\t4. Mostrar Alumnos."<<endl;
+ cout<<"\t5. Modificar Alumno."<<endl;
 	if(prof.getRol()=="coordinador"){
-	 cout<<"\n\t5. Hacer Backup."
-	 <<"\n\t6. Cargar Backup."<<endl;
+	 cout<<"\t6. Hacer Backup."<<endl;
+	 cout<<"\t7. Cargar Backup."<<endl;
  }
- cout<<">.----------------------------------------------------------------------.<"<<endl;
+
+ cout<<"\n>.----------------------------------------------------------------------.<"<<endl;
  cout<<"opcion: ";
  cin>>opcion;
  	switch(opcion){
@@ -112,6 +114,10 @@ cout<<"\n\t 1. Salir"<<endl;
 	 break;
 
 	 case 5:
+	 age.modificarAlumno();
+	 break;
+
+	 case 6:
 	 	aux = age.getAlumnos();
 		if(prof.hacer_backup(aux) == -1){
 			cout<<"No hay alumnos en el sistema"<<endl;
@@ -119,7 +125,7 @@ cout<<"\n\t 1. Salir"<<endl;
 
 	 break;
 
-	 case 6:
+	 case 7:
 	 age.setAlumnos(prof.cargar_backup());
 	 cout<<"Los datos se han cargado correctamente!! "<<endl;
 	 break;
