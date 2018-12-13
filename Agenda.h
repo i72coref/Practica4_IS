@@ -20,7 +20,9 @@ class Agenda{
 	void mostrarAlumnos();
 	void introducirAlumnos();
 	vector<Alumno> ordenar();
-  int lideres(int grupo);
+	void modificarAlumno();
+  	int lideres(int grupo);
+
 };
 
 #endif
