@@ -110,7 +110,7 @@ void Agenda::mostrarAlumnos(){
 				//Creo un vector auxiliar, para al ordenar no modificar el vector orginal
 
 				if(v_aux[i].getLider() == true){
-					cout<<"\e[1m "/*Activa resaltado*/<<"--> Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+					cout<<"\e[1m "/*Activa resaltado*/<<"Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 				}
 				else{
 					cout<<"Nombre: "<<v_aux[i].getNombre()<<endl;
@@ -239,6 +239,9 @@ void Agenda::introducirAlumnos(){
 			setbuf(stdin, NULL);
 			getline(cin, auxS);
 			aux.setFecha_nacimiento(auxS);
+			if(auxS.empty()){
+				cout<<"La Fecha de nacimiento es obligatoria"<<endl;
+			}
 		}
 		while(auxS.empty());
 		auxS.clear();		
@@ -248,6 +251,9 @@ void Agenda::introducirAlumnos(){
 			setbuf(stdin, NULL);
 			getline(cin, auxS);
 			aux.setEmail(auxS);
+			if(auxS.empty()){
+				cout<<"El Email es obligatorio"<<endl;
+			}
 		}
 		while(auxS.empty());
 		auxS.clear();		
@@ -257,6 +263,9 @@ void Agenda::introducirAlumnos(){
 			setbuf(stdin, NULL);
 			getline(cin, auxS);
 			aux.setDireccion(auxS);
+			if(auxS.empty()){
+				cout<<"La dirección es obligatoria"<<endl;
+			}
 		}
 		while(auxS.empty());
 		auxS.clear();		
@@ -387,4 +396,47 @@ vector<Alumno> Agenda::ordenar(){
 		}
 	}
 	return v_aux;
+}
+
+void Agenda::modificarAlumno(){
+	int op;
+	vector<int> indices;
+	cout<<"Como desea buscar el alumno a modificar \n\t1.Por DNI\n\t2.Por Grupo\n\t3.Por apellidos\nOpcion:";
+	cin>>op;
+	switch(op){
+		default:{
+			cout<<"ERROR, opcion no encontrada"<<endl;
+		break;
+		}
+		case 1:{
+			int auxDNI;
+			cout<<"Que DNI desea buscar: ";
+			cin>>auxDNI;
+			indices = buscarAlumno(auxDNI, "empty", 2);
+		break;
+		}
+		case 2:{
+			int auxGrupo;
+			cout<<"Que Grupo desea buscar: ";
+			cin>>auxGrupo;
+			indices = buscarAlumno(auxGrupo, "empty", 3);					
+		break;
+		}
+		case 3:{
+			string auxAp;
+			cout<<"Que Apellidos desea buscar: ";
+			setbuf(stdin, NULL);
+			getline(cin, auxAp);
+			indices = buscarAlumno(-1, auxAp, 1);
+		break;
+		}
+	}
+
+	for(int i=0; i<indices.size(); i++){
+		int j = indices[i];
+		int mod;
+		
+
+
+	}
 }

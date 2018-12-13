@@ -20,6 +20,7 @@ class Agenda{
 	void mostrarAlumnos();
 	void introducirAlumnos();
 	vector<Alumno> ordenar();
+	void modificarAlumno();
 };
 
 #endif
