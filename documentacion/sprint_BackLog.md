@@ -10,9 +10,9 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
 
 ### Sprint 1: 28 noviembre - 6 diciembre 2018.
  - **Día 28 noviembre**
- - - **i7lopca**: creación de la Clase: Profesor.
- - - **i72coref**: creación de la Clase: Agenda.
- - - **i72caora**: creación de la Clase: Alumno.
+  - **i7lopca**: creación de la Clase: Profesor.
+  - **i72coref**: creación de la Clase: Agenda.
+  - **i72caora**: creación de la Clase: Alumno.
 
 ### Sprint 2: 7 - 10 diciembre 2018.
 
