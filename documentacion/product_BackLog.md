@@ -80,12 +80,15 @@ _Tiempo Estimado de Desarrolo:_ **3:30h**
 
 ### Fichero para la creación de credenciales:
 - Nuestra Prioridad: **1**
-_Tiempo Estimado de Desarrolo:_ **2**
+
+_Tiempo Estimado de Desarrolo:_ **2h**
 
 ### Fichero para la creación de alumnos:
 - Nuestra Prioridad: **3**
-_Tiempo Estimado de Desarrolo:_ **2:30**
+
+_Tiempo Estimado de Desarrolo:_ **2:30h**
 
 ### Ficheros adicionales para comprobar funciones:
 - Nuestra Prioridad: **6**
-_Tiempo Estimado de Desarrolo:_ **4:30**
+
+_Tiempo Estimado de Desarrolo:_ **4:30h**
