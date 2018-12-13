@@ -24,6 +24,8 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    **i72coref**: programa para la creación de credenciales y su comprobación. 
    **i72caora**: creación Clase Profesor.h y fichero Profesor.cc.
    
+
+### Sprint 2: 7 - 10 diciembre 2018.
    - **Día 9 diciembre.**
    **i7lopca**: creación grafico Burndown Chart.
    **i72coref**: documentación Burndown Chart.
@@ -34,8 +36,6 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    **i72coref**: edicción main.cc _(tuvimos problemas con git)_.
    **i72caora**: función para crear ficheros binarios de alumnos.
    
-### Sprint 2: 7 - 10 diciembre 2018.
- .
  
 ### Sprint 3: 11 - 15 diciembre 2018.
 
@@ -45,7 +45,7 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    **i72caora**: trabajando en cargar_almacenamiento, arreglos en profesor.cc y profesor.h.
    
    - **Día 13 diciembre.**
-   **i7lopca**: 
-   **i72coref**: 
-   **i72caora**: 
+   **i7lopca**: trabajo en modificar_alumno y arreglos varios en las funciones de Alumno.cc y Agenda.cc.
+   **i72coref**: correción guardar_almacenamiento y backup, cargar_almacenamiento y cargar_backup, creación y finalización de  gestion_lideres.
+   **i72caora**: corrección documentación, main.cc. 
    
