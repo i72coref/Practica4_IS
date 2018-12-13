@@ -40,10 +40,7 @@ void Agenda::borrarAlumno(){
 	cout<<"En el sistema hay un total de "<<v_Alumnos.size()<<endl;
 }
 
-bool Agenda::gestionLideres(){
-	printf("Gestionando lideres.\n");
-	return true;
-}
+
 
 vector<int> Agenda::buscarAlumno(int entero=-1, string apellido="Vacio", int tipo = 1){// tipo de dato =1 apellido , 2 dni ó 3 grupo
 //	Creo el vector de indices
@@ -289,7 +286,18 @@ void Agenda::introducirAlumnos(){
 
 			cout<<"¿Lider? (0 = NO, 1 = SI), Opcion:";
 			cin>>auxB;
-			aux.setLider(auxB);
+			if(auxB == 1){
+				int a =	lideres(aunI);
+
+					if(a == 0){
+						aux.setLider(auxB);
+						cout<<"Asigando como lider en el grupo "<<aunI<<endl;
+					}
+					else{cout<<"Ya hay un lider en ese grupo"<<endl;
+					}
+			}
+
+
 		}
 		else{ //Si el grupo es -1 significa que no tiene grupo
 			aux.setGrupo(-1);
