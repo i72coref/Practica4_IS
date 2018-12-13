@@ -19,8 +19,8 @@ public:
 	vector<Alumno> cargar_backup();
 	vector<Alumno> cargar_almacenamiento();
 
-  int hacer_backup();
-  int guardar_almacenamiento();
+  void hacer_backup(vector <Alumno> x);
+  void guardar_almacenamiento(vector <Alumno> x);
 
 
 };

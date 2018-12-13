@@ -9,21 +9,21 @@
 using namespace std;
 
 //Prototipos de funciones
-void firstmenu(Profesor prof, Agenda age);
-void menu(Profesor prof, Agenda age);
+void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux);
+void menu(Profesor prof, Agenda age, vector <Alumno> aux);
 
 
 int main(){
 	Agenda age;
 	Profesor prof;
-
+	vector <Alumno> aux;
 //	Menu inicial, al abrir el programa.
-	firstmenu(prof, age);
+	firstmenu(prof, age, aux);
 
 	return 0;
 }
 
-void firstmenu(Profesor prof, Agenda age){
+void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 	int opcion=0, intentos=5;
 	cout<<">.----------------------------------------------------------------------.<"<<endl;
 	cout<<"\tHOLA, BIEN VENIDO AL SISTEMA."<<endl;
@@ -43,7 +43,7 @@ void firstmenu(Profesor prof, Agenda age){
 				if (prof.login() == 0){
 					intentos=0;
 					cout<<"EXITO!"<<endl;
-					menu(prof, age);
+					menu(prof, age, aux);
 				}
 				else{
 					intentos--;
@@ -62,7 +62,7 @@ void firstmenu(Profesor prof, Agenda age){
 	}
 }
 
-void menu(Profesor prof, Agenda age){
+void menu(Profesor prof, Agenda age, vector <Alumno> aux){
 
 int opcion=0;
 	age.setAlumnos(prof.cargar_almacenamiento());
@@ -72,7 +72,7 @@ while(opcion>=0){
  cout<<">.----------------------------------------------------------------------.<"<<endl;
  cout<<"\tEstas logueado como: "<< prof.getRol() <<"."<<endl;
  cout<<"\t"<<endl;
-cout<<"\t 1. Salir"<<endl;
+cout<<"\n\t 1. Salir"<<endl;
  cout<<"\t 2. Introducir alumnos."<<endl;
  cout<<"\n\t 3. Borrar Alumno."<<endl;
  cout<<"\n\t 4. Mostrar Alumnos."<<endl;
@@ -92,9 +92,8 @@ cout<<"\t 1. Salir"<<endl;
 
 		cout<<"SALIENDO..."<<endl;
 		cout<<endl;
-		if(prof.guardar_almacenamiento()==0){
-			cout<<"Datos guardados correctamente."<<endl;}
-		else{ cout<<"Error al guardar los datos."<<endl;}
+		aux = age.getAlumnos();
+		prof.guardar_almacenamiento(aux);
  		exit(0);
 	 break;
 
@@ -103,7 +102,7 @@ cout<<"\t 1. Salir"<<endl;
 	 break;
 
 	 case 3:
-	 //age.BorrarAlumno();
+	age.borrarAlumno();
 	 break;
 
 	 case 4:
@@ -111,13 +110,14 @@ cout<<"\t 1. Salir"<<endl;
 	 break;
 
 	 case 5:
-
+	 	aux = age.getAlumnos();
+		prof.hacer_backup(aux);
 
 	 break;
 
-
 	 case 6:
-
+	 age.setAlumnos(prof.cargar_backup());
+	 cout<<"Los datos se han cargado correctamente!! "<<endl;
 	 break;
 
   }

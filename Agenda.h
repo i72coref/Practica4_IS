@@ -21,6 +21,8 @@ class Agenda{
 	void introducirAlumnos();
 	vector<Alumno> ordenar();
 	void modificarAlumno();
+  	int lideres(int grupo);
+
 };
 
 #endif
