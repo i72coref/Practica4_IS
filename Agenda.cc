@@ -2,6 +2,7 @@
 #include "Agenda.h"
 #include <cstdio>
 #include <cstdlib>
+#include <fstream>
 
 void Agenda::borrarAlumno(){
 	vector<int> indices;
@@ -91,6 +92,7 @@ void Agenda::mostrarAlumnos(){
 	vector<Alumno> v_aux;
 	vector<int> indices;
 	int op = 1;
+	int eleccion = 3;
 	cout<<"\nElija una opcion:\n"
 	<<"\t  \e[1;31m1.\e[0m Mostrar todos los alumnos.\n"
 	<<"\t  \e[1;31m2.\e[0m Mostrar uno o varios alumnos.\n"
@@ -104,18 +106,34 @@ void Agenda::mostrarAlumnos(){
 			break;
 		}
 		case 1:{
+
+			while((eleccion != 1) && (eleccion != 2)){
+				cout<<"\nCómo desea mostrar (1 = Terminal   2 = Markdown): ";
+				cin >> eleccion;
+
+				if((eleccion != 1) && (eleccion != 2)){
+					cout<< "Valor incorrecto, vuelve a introducir"<<endl;
+				}
+			}
+
 			v_aux = ordenar();
 			for(int i=0; i<v_aux.size(); i++){
 				//Creo un vector auxiliar, para al ordenar no modificar el vector orginal
 
+					if(eleccion == 2){
+						markdown(v_aux[i]);
+					}
+					else{
+
+				cout<<"El alumno numero "<< i+1 <<" es:\n";
 				if(v_aux[i].getLider() == true){
 					cout<<"\e[1;33m"/*Activa resaltado*/<<"Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 				}
 				else{
 					cout<<"Nombre: "<<v_aux[i].getNombre()<<endl;
 				}
-				cout<<"El alumno numero "<< i+1 <<" es:"
-				<<"\nApellidos: "<<v_aux[i].getApellidos()
+
+				cout<<"Apellidos: "<<v_aux[i].getApellidos()
 				<<"\nDNI: "<<v_aux[i].getDNI()
 				<<"\nFecha de nacimiento: "<<v_aux[i].getFecha_nacimiento()
 				<<"\nEmail: "<<v_aux[i].getEmail()
@@ -128,12 +146,14 @@ void Agenda::mostrarAlumnos(){
 				else{
 					cout<<endl;
 				}
+			 }
 			}
 			break;
+
 		}
 		case 2:{
 			int op2;
-			cout<<"\tComo desea buscar\n\t  1.Por DNI\n\t  2.Por Grupo\n\t  3.Por apellidos\n\tOpcion:";
+			cout<<"\tComo desea buscar\n\t  \e[1;32m1. \e[0mPor DNI\n\t  \e[1;32m2. \e[0mPor Grupo\n\t  \e[1;32m3. \e[0mPor apellidos\n\tOpcion: ";
 			cin>>op2;
 			switch(op2){
 				default:{
@@ -162,30 +182,50 @@ void Agenda::mostrarAlumnos(){
 					indices = buscarAlumno(-1, auxAp, 1);
 				break;
 				}
-			};
-		break;
+			}
+
+
+		while((eleccion != 1) && (eleccion != 2)){
+			cout<<"\nCómo desea mostrar (1 = Terminal   2 = Markdown): ";
+			cin >> eleccion;
+
+			if((eleccion != 1) && (eleccion != 2)){
+				cout<< "Valor incorrecto, vuelve a introducir"<<endl;
+			}
+		}
+
+for(int i=0; i<indices.size(); i++){
+
+	int j = indices[i];
+	if(eleccion == 2){
+			markdown(v_Alumnos[j]);
+	}
+	else{
+	if(v_Alumnos[j].getLider() == true){
+		cout<<"\e[1;33m"/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[j].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+	}
+	else{
+		cout<<"Nombre: "<<v_Alumnos[j].getNombre()<<endl;
+	}
+	cout<<"El alumno numero "<< i+1 <<" es:"
+	<<"\nApellidos: "<<v_Alumnos[j].getApellidos()
+	<<"\nDNI: "<<v_Alumnos[j].getDNI()
+	<<"\nFecha de nacimiento: "<<v_Alumnos[j].getFecha_nacimiento()
+	<<"\nEmail: "<<v_Alumnos[j].getEmail()
+	<<"\nDireccion: "<<v_Alumnos[j].getDireccion()
+	<<"\nCurso mas alto en el que esta matriculado: "<<v_Alumnos[j].getCurso()
+	<<"\nTelefono: "<<v_Alumnos[j].getTlf()<<endl;
+	if(v_Alumnos[j].getGrupo() != -1){
+		cout<<"Grupo: "<<v_Alumnos[j].getGrupo()<<"\n"<<endl;
 		}
 	}
-	for(int i=0; i<indices.size(); i++){
-		int j = indices[i];
-		if(v_Alumnos[j].getLider() == true){
-			cout<<"\e[1;33m"/*Activa resaltado*/<<"Nombre: "<<v_Alumnos[j].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
-		}
-		else{
-			cout<<"Nombre: "<<v_Alumnos[j].getNombre()<<endl;
-		}
-		cout<<"El alumno numero "<< i+1 <<" es:"
-		<<"\nApellidos: "<<v_Alumnos[j].getApellidos()
-		<<"\nDNI: "<<v_Alumnos[j].getDNI()
-		<<"\nFecha de nacimiento: "<<v_Alumnos[j].getFecha_nacimiento()
-		<<"\nEmail: "<<v_Alumnos[j].getEmail()
-		<<"\nDireccion: "<<v_Alumnos[j].getDireccion()
-		<<"\nCurso mas alto en el que esta matriculado: "<<v_Alumnos[j].getCurso()
-		<<"\nTelefono: "<<v_Alumnos[j].getTlf()<<endl;
-		if(v_Alumnos[j].getGrupo() != -1){
-			cout<<"Grupo: "<<v_Alumnos[j].getGrupo()<<"\n"<<endl;
+}
+
+
 		}
 	}
+
+
 }
 
 void Agenda::introducirAlumnos(){
@@ -607,4 +647,47 @@ int Agenda::lideres(int grupo){
 	}
 	if(contador == 0){return 0;}//no hay lider en ese grupo
 	else{return 1;}//hay un lider
+}
+
+int usos = 0;
+
+void Agenda::markdown(Alumno aux){
+usos++;
+fstream fichero;
+
+	if(usos == 1){
+		fichero.open("Markdown.md" ,ios::out);
+		fichero.close();
+	}
+
+fichero.open("Markdown.md" ,ios::out | ios::app);
+
+if(aux.getLider() == true){//se escribe el nombre resaltado
+fichero<<"<h2>"<<endl;
+fichero<<"\n"<<endl;
+fichero<<"```diff"<<endl;
+fichero<<"+ Nombre: "<<aux.getNombre()<<endl;
+fichero<<"```"<<endl;
+fichero<<"\n"<<endl;
+fichero<<"</h2>"<<endl;
+}
+else{//se escribe el nombre normal
+	fichero<<"**Nombre:** *"<<aux.getNombre()<<"*"<<endl;
+}
+
+fichero<<"\n**Apellidos:** *"<<aux.getApellidos()<<"*"<<endl;
+fichero<<"\n**DNI:** *"<<aux.getDNI()<<"*"<<endl;
+fichero<<"\n**Fecha:** *"<<aux.getFecha_nacimiento()<<"*"<<endl;
+fichero<<"\n**Email:** *"<<aux.getEmail()<<"*"<<endl;
+fichero<<"\n**Dirección:** *"<<aux.getDireccion()<<"*"<<endl;
+fichero<<"\n**Curso más alto:** *"<<aux.getCurso()<<"*"<<endl;
+fichero<<"\n**Teléfono:** *"<<aux.getTlf()<<"*"<<endl;
+fichero<<"\n**Grupo:** *"<<aux.getGrupo()<<"*"<<endl;
+fichero<<"\n"<<endl;
+fichero<<"&nbsp;\n"<<endl;
+
+
+fichero.close();
+
+
 }
