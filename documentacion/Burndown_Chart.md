@@ -15,4 +15,4 @@ La realización del sistema tardará un tiempo estimado de **44H** total.
 
 - **Horas de trabajo:** _**18**_ **-** Restante: _**0**_.
 
-[Imgur](https://i.imgur.com/UEMrYct.png)
+
