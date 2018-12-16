@@ -5,13 +5,14 @@ La realización del sistema tardará un tiempo estimado de **44H** total.
 
 ### Sprint 1: 28 noviembre - 6 diciembre 2018.
 
-- **Horas:** _**14h**_ **-** Restante: _**30h**_.
+- **Horas de trabajo:** _**14h**_ **-** Restante: _**30h**_.
 
 ### Sprint 2: 7 - 10 diciembre 2018.
 
-- **Horas:** _**12**_ **-** Restante: _**18h**_.
-
+- **Horas de trabajo:** _**12**_ **-** Restante: _**18h**_.
+ 
 ### Sprint 3: 11 - 15 diciembre 2018.
 
-- **Horas:** _**18**_ **-** Restante: _**0**_.
+- **Horas de trabajo:** _**18**_ **-** Restante: _**0**_.
 
+![](https://imgur.com/a/clgqcXE)
