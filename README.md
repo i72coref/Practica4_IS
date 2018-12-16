@@ -5,7 +5,7 @@ Para poder entrar en el sistema, tienes que usar las siguientes credenciales:
 
 - Entrar como **Coordinador**:
 
-  _usuario_: cord-ayuso _password_: 123abcd
+  _usuario_: cord-ayuzo _password_: 123abcd
   
   _usuario_: cord-pepe _password_: 4321
   
