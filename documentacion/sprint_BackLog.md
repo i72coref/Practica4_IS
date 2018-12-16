@@ -70,14 +70,17 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    
    **i72caora**: correción guardar_almacenamiento y backup, cargar_almacenamiento y cargar_backup, creación y finalización de  gestion_lideres, y terminación de main.
    
-   - **Día 13 diciembre.**
-   
-   **i72lopca**:
-   
-   **i72coref**:
+   - **Día 14 diciembre.**
    
    **i72caora**: creación y finalización de mostrar alumnos a traves de markdown
    
+   - **Día 16 diciembre.**
+   
+   **i72lopca**: correción de errores.
+   
+   **i72coref**: correción de errores.
+   
+   **i72caora**: puesta a punto del sistema.
    
    
    
