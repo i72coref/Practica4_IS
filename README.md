@@ -7,7 +7,7 @@ Para poder entrar en el sistema, tienes que usar las siguientes credenciales:
 
   _usuario_: cord-ayuso _password_: 123abcd
   
-  _usaurio_: cord-pene _password_: 4321
+  _usuario_: cord-pepe _password_: 4321
   
 - Entrar como **Ayudante**:
 
