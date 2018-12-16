@@ -3,15 +3,15 @@ El archivo para ejecutar nuestro sistema es: **sistema.out**
 
 Para poder entrar en el sistema, tienes que usar las siguientes credenciales:
 
-- **Coordinador**:
+- Entrar como **Coordinador**:
 
   _usuario_: cord-ayuso _password_: 123abcd
   
   _usaurio_: cord-pene _password_: 4321
   
-- **Ayudante**:
+- Entrar como **Ayudante**:
 
-  _usuario_: ayupaco _password_: 123
+  _usuario_: ayu-paco _password_: 123
   
   _usuario_: ayu-cordoba _password_: abc123: 
 
