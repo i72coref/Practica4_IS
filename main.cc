@@ -36,7 +36,7 @@ void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 
 	/*	if(opcion>2 || opcion<1){
 		cout<<"ERROR! Vuelva a introducir la opcion"<<endl;} //Falta hacer esto */
-
+while(intentos > 0){
 		switch(opcion){
 			default:{
 	cout<<"Opcion no encontrada."<<endl;
@@ -60,6 +60,7 @@ void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 			case 2:
 				exit(0);
 			break;
+		 }
 		}
 	}
 

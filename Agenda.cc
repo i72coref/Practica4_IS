@@ -328,6 +328,7 @@ void Agenda::introducirAlumnos(){
 
 			cout<<"¿Lider? (0 = NO, 1 = SI), Opcion:";
 			cin>>auxB;
+
 			if(auxB == 1){
 				int a =	lideres(aunI);
 				if(a == 0){
@@ -348,7 +349,7 @@ void Agenda::introducirAlumnos(){
 		}
 
 		v_Alumnos.push_back(aux);
-		system("clear");
+		cout<<"\n";
 	}
 	cout<<"En el sistema hay un total de "<<v_Alumnos.size()<<endl;
 }
@@ -682,7 +683,10 @@ fichero<<"\n**Email:** *"<<aux.getEmail()<<"*"<<endl;
 fichero<<"\n**Dirección:** *"<<aux.getDireccion()<<"*"<<endl;
 fichero<<"\n**Curso más alto:** *"<<aux.getCurso()<<"*"<<endl;
 fichero<<"\n**Teléfono:** *"<<aux.getTlf()<<"*"<<endl;
+
+if(aux.getGrupo() != -1){
 fichero<<"\n**Grupo:** *"<<aux.getGrupo()<<"*"<<endl;
+}
 fichero<<"\n"<<endl;
 fichero<<"&nbsp;\n"<<endl;
 
