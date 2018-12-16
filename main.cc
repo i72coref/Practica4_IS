@@ -25,12 +25,12 @@ int main(){
 
 void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 	int opcion=0, intentos=5;
-	cout<<"\n\e[1;33m >.----------------------------------------------------------------------.<\e[0m"<<endl;
-	cout<<"\t\e[1;33m HOLA, BIENVENIDO AL SISTEMA.\e[0m"<<endl;
+	cout<<"\n\e[1;32m >.----------------------------------------------------------------------.<\e[0m"<<endl;
+	cout<<"\t\e[1;32m HOLA, BIENVENIDO AL SISTEMA.\e[0m"<<endl;
 	cout<<"\t"<<endl;
-	cout<<"\t \e[1;33m 1.\e[0m Introduce tus credenciales para continuar."<<endl;
-	cout<<"\t \e[1;33m 2.\e[0m Salir."<<endl;
-	cout<<"\n\e[1;33m >.----------------------------------------------------------------------.<\e[0m"<<endl;
+	cout<<"\t \e[1;32m 1.\e[0m Introduce tus credenciales para continuar."<<endl;
+	cout<<"\t \e[1;32m 2.\e[0m Salir."<<endl;
+	cout<<"\n\e[1;32m >.----------------------------------------------------------------------.<\e[0m"<<endl;
 	cout<<"\nOpción: ";
 	cin>>opcion;
 
@@ -39,6 +39,10 @@ void firstmenu(Profesor prof, Agenda age, vector <Alumno> aux){
 
 	while(intentos>0){
 		switch(opcion){
+			default:{
+	cout<<"Opcion no encontrada."<<endl;
+	break;
+}
 			case 1:
 				if (prof.login() == 0){
 					intentos=0;
@@ -88,6 +92,11 @@ cout<<"\t\e[1;32m 1.\e[0m Salir"<<endl;
 
  	switch(opcion){
 
+		default:{
+	cout<<"Opcion no encontrada."<<endl;
+	break;
+}
+
 	 case 1:
 
 	/*Al elegir la opcion del salir del programa,
@@ -131,7 +140,7 @@ if(prof.getRol() == "coordinador"){
 		}
 }
 else{
-	cout<<"Debes ser coordinador"<<endl;
+	cout<<"Opcion no encontrada."<<endl;
 }
 	 break;
 
@@ -142,7 +151,7 @@ if(prof.getRol() == "coordinador"){
 	 break;
 }
 else{
-		cout<<"Debes ser coordinador"<<endl;
+		cout<<"Opcion no encontrada."<<endl;
 }
 
   }

@@ -94,8 +94,8 @@ void Agenda::mostrarAlumnos(){
 	int op = 1;
 	int eleccion = 3;
 	cout<<"\nElija una opcion:\n"
-	<<"\t  \e[1;31m1.\e[0m Mostrar todos los alumnos.\n"
-	<<"\t  \e[1;31m2.\e[0m Mostrar uno o varios alumnos.\n"
+	<<"\t  \e[1;32m1.\e[0m Mostrar todos los alumnos.\n"
+	<<"\t  \e[1;32m2.\e[0m Mostrar uno o varios alumnos.\n"
 	<<"\tOpcion: ";
 	cin>>op;
 	cout<<"\n";
@@ -127,7 +127,7 @@ void Agenda::mostrarAlumnos(){
 
 				cout<<"El alumno numero "<< i+1 <<" es:\n";
 				if(v_aux[i].getLider() == true){
-					cout<<"\e[1;33m"/*Activa resaltado*/<<"Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
+					cout<<"\e[1;32m"/*Activa resaltado*/<<"Nombre: "<<v_aux[i].getNombre()<<"\e[0m"/*desactiva resaltado*/<<endl;
 				}
 				else{
 					cout<<"Nombre: "<<v_aux[i].getNombre()<<endl;
