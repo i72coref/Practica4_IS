@@ -13,5 +13,5 @@ La realización del sistema tardará un tiempo estimado de **44H** total.
 
 ### Sprint 3: 11 - 15 diciembre 2018.
 
-- **Horas:** _**18**_ **-** Restante: _**16h**_.
+- **Horas:** _**18**_ **-** Restante: _**0**_.
 
