@@ -13,5 +13,5 @@ Para poder entrar en el sistema, tienes que usar las siguientes credenciales:
 
   _usuario_: ayu-paco _password_: 123
   
-  _usuario_: ayu-cordoba _password_: abc123: 
+  _usuario_: ayu-cordoba _password_: abc123
 
