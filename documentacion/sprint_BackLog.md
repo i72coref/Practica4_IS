@@ -52,7 +52,7 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    **i72caora**: función para crear ficheros binarios de alumnos.
    
  
-### Sprint 3: 11 - 15 diciembre 2018.
+### Sprint 3: 11 - 16 diciembre 2018.
 
    - **Día 12 diciembre.**
    
