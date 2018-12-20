@@ -269,9 +269,21 @@ void Agenda::introducirAlumnos(){
 		while(auxS.empty());
 		auxS.clear();
 
-		cout<<"DNI: ";
-		cin>>aunI;
-		aux.setDNI(aunI);
+		vector<int> indices;
+		do{
+			indices.clear();
+			cout<<"DNI: ";
+			cin>>aunI;
+			indices = buscarAlumno(aunI, "empty", 2);
+			if(indices.empty()){
+				aux.setDNI(aunI);	
+			}
+			else{
+				cout<<"ERROR, el DNI ya existe"<<endl;
+			}
+		}
+		while(!indices.empty());
+		indices.clear();
 
 		do{
 			cout<<"Fecha de nacimiento: ";
@@ -533,9 +545,21 @@ void Agenda::modificarAlumno(){
 		cout<<"¿Desea modificar el DNI? (0 = NO, 1 = SI): ";
 		cin>>mod;
 		if(mod == 1){
-			cout<<"DNI: ";
-			cin>>aunI;
-			v_Alumnos[j].setDNI(aunI);
+			vector<int> dniEx; //Varible para controlar si el DNI ya existe
+			do{
+				dniEx.clear();
+				cout<<"DNI: ";
+				cin>>aunI;
+				dniEx = buscarAlumno(aunI, "empty", 2);
+				if(dniEx.empty()){
+					v_Alumnos[j].setDNI(aunI);	
+				}
+				else{
+					cout<<"ERROR, el DNI ya existe"<<endl;
+				}
+			}
+			while(!dniEx.empty());
+			dniEx.clear();		
 		}
 
 		cout<<"¿Desea modificar la fecha de nacimiento? (0 = NO, 1 = SI): ";
