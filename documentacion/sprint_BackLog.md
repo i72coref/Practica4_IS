@@ -82,5 +82,26 @@ A lo largo de los cuatro Sprints realizados en el Desarrollo de Nuestro Proyecto
    
    **i72caora**: puesta a punto del sistema.
    
+   ### Sprint 4: 17 - 22 diciembre 2018.
+     
+   - **Día 20 diciembre.**
+   
+   **i72lopca**: control de DNI repetidos en modificar e introducir alumnos.
+   
+   - **Día 21 diciembre.**
+   
+   **i72lopca**: documentación proyecto final.
+   
+   **i72coref**: documentación proyecto final.
+   
+   **i72caora**: documentación proyecto final.
+    
+   - **Día 22 diciembre.**
+   
+   **i72lopca**: ultimas pruebas del código modificado y revisión documentación final.
+   
+   **i72coref**: revisión documentación proyecto final y últimos cambios.
+   
+   **i72caora**: últimas modificaciones documentación proyecto final.
    
    
